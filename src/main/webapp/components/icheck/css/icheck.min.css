@@ -1,0 +1,20 @@
+/*!
+ * iCheck v1.0.1 (Skin) - http://git.io/arlzeA
+ *
+ * Powerful jQuery and Zepto plugin for checkboxes and radio buttons customization.
+ *
+ * (c) 2013 Damir Sultanov, http://fronteed.com
+ *
+ * MIT Licensed
+ */
+@import url("skins/minimal.min.css");
+
+@import url("skins/square.min.css");
+
+@import url("skins/flat.min.css");
+
+@import url("skins/line.min.css");
+
+@import url("skins/polaris.min.css");
+
+@import url("skins/futurico.min.css");

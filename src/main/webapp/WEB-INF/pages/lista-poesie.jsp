@@ -162,7 +162,7 @@
 										<c:if test="${not empty pageContext.request.remoteUser}">
 											<div class="portfolio-links">
 								                <a data-toggle="modal" data-target="#popUpdate" data-gall="portfolioGallery" onclick="updatePrepare('${item.id}')" class="button">Modifica</a>
-						                		<a  data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" onclick="deletePoesia('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
+						                		<a data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" onclick="deletePoesia('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
 								             </div>
 								        </c:if>    
 									</div>
@@ -268,7 +268,7 @@
 											</div>
 											<div id="result"></div>
 											<div class="text-center">
-												<button class="button" type="submit" onclick="insertPoesia()" value="Inserisci">Inserisci</button>
+												<button data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" class="button" type="submit" onclick="insertPoesia()" value="Inserisci">Inserisci</button>
 											</div>
 									</div>
 						        </div>

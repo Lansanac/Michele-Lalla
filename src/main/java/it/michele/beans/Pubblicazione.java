@@ -1,10 +1,5 @@
 package it.michele.beans;
 
-import java.io.OutputStream;
-import java.util.Date;
-
-import com.mysql.jdbc.Blob;
-
 public class Pubblicazione {
 
 	private Integer id;

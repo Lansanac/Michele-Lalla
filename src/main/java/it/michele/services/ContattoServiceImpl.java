@@ -49,6 +49,7 @@ public class ContattoServiceImpl implements ContattoService {
 		logger.info("Contatto	--->>	" + contact);
 		System.out.println("ContattoServiceImpl.sendSimpleMessage");
 		System.out.println("Contatto	--->>	" + contact);
+		String[] emails = new String[2];
 		final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 
 		String contatto = "Nome: " + contact.getNome() + "\n";
@@ -60,7 +61,9 @@ public class ContattoServiceImpl implements ContattoService {
 //		String to = "lansanac124@gmail.com";
 //	    String to = "tirondenisia@gmail.com";
 //	    String to = "lansana.camara@outlook.it";
-
+		emails[0] = to; 
+		emails[1] = contact.getEmail();
+		
 		// Sender's email ID needs to be mentioned
 		String from = "web@gmail.com";
 		//String from = "lansanaweb0@gmail.com";
@@ -91,30 +94,31 @@ public class ContattoServiceImpl implements ContattoService {
 		PrintWriter out = response.getWriter();
 
 		try {
-			// Create a default MimeMessage object.
-			MimeMessage message = new MimeMessage(session);
+			for(int i=0; i<emails.length; i++) {
+				// Create a default MimeMessage object.
+				MimeMessage message = new MimeMessage(session);
+	
+				// Set From: header field of the header.
+				message.setFrom(new InternetAddress(from));
+	
+				// Set To: header field of the header.
+				message.addRecipient(Message.RecipientType.TO, new InternetAddress(emails[i]));
+	
+				// Set Subject: header field
+				message.setSubject(contact.getSoggetto());
+	
+				// Now set the actual message
+				message.setText(contatto);
+	
+				message.setSentDate(new Date());
+	
+				// Send message
+				Transport.send(message);
+	            System.out.println("message sent");
+	    		logger.info("ContattoServiceImpl.sendSimpleMessage -->> message sent");
 
-			// Set From: header field of the header.
-			message.setFrom(new InternetAddress(from));
-
-			// Set To: header field of the header.
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-
-			// Set Subject: header field
-			message.setSubject(contact.getSoggetto());
-
-			// Now set the actual message
-			message.setText(contatto);
-
-			message.setSentDate(new Date());
-
-			// Send message
-			Transport.send(message);
-            System.out.println("message sent");
-    		logger.info("ContattoServiceImpl.sendSimpleMessage -->> message sent");
-
-            //JOptionPane.showMessageDialog(null, "Message Sent!", "Sent", JOptionPane.INFORMATION_MESSAGE);
-			
+	    		//JOptionPane.showMessageDialog(null, "Message Sent!", "Sent", JOptionPane.INFORMATION_MESSAGE);
+			}
 			String title = "Send Email";
 			String res = "Il messaggio é sta inviato con successo...";
 			String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";

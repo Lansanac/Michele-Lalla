@@ -156,11 +156,12 @@
 						<% if(i==1){%>
 							<div class="col-lg-4 col-md-6 portfolio-item filter-app">
 								<div class="portfolio-wrap">
-									<img class="myImg" src="${pubblicazione.image}"
+									<img class="myImg" src="data:image/jpg;base64,${pubblicazione.image}"
 										class="img-fluid" alt="">
 									<div class="portfolio-links">
-										<a href="${pubblicazione.image}"
-											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"><i
+										<a href="data:image/jpg;base64,${pubblicazione.image}"
+											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"
+											width="141" height="192" data-target="#popImg"><i
 											class="bx bx-plus"></i></a> <a href="${pubblicazione.description}"
 											title="More Details" data-toggle="modal" onclick="dettaglio('${pubblicazione.id}')"
 											data-target="#pubCampo"><i class="bx bx-link"></i></a>
@@ -172,11 +173,12 @@
 						
 							<div class="col-lg-4 col-md-6 portfolio-item filter-web">
 								<div class="portfolio-wrap">
-									<img class="myImg" src="${pubblicazione.image}"
+									<img class="myImg" src="data:image/jpg;base64,${pubblicazione.image}"
 										class="img-fluid" alt="">
 									<div class="portfolio-links">
-										<a href="${pubblicazione.image}"
-											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"><i
+										<a href="data:image/jpg;base64,${pubblicazione.image}"
+											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"
+											width="141" height="192" data-target="#popImg"><i
 											class="bx bx-plus"></i></a> <a href="${pubblicazione.description}"
 											title="More Details" data-toggle="modal" onclick="dettaglio('${pubblicazione.id}')"
 											data-target="#pubCampo"><i class="bx bx-link"></i></a>
@@ -187,11 +189,12 @@
 	       				else if(i==3){ %>
 							<div class="col-lg-4 col-md-6 portfolio-item filter-app">
 								<div class="portfolio-wrap">
-									<img class="myImg" src="${pubblicazione.image}"
+									<img class="myImg" src="data:image/jpg;base64,${pubblicazione.image}"
 										class="img-fluid" alt="">
 									<div class="portfolio-links">
-										<a href="${pubblicazione.image}"
-											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"><i
+										<a href="data:image/jpg;base64,${pubblicazione.image}"
+											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"
+											width="141px" height="192px" data-target="#popImg" ><i
 											class="bx bx-plus"></i></a> <a href="${pubblicazione.description}" onclick="dettaglio('${pubblicazione.id}')"
 											title="More Details" data-toggle="modal"
 											data-target="#pubCampo"><i class="bx bx-link"></i></a>
@@ -209,7 +212,21 @@
 			<!-- End Portfolio Section -->
 
 
-
+			<!--POP Il campo di pomodori -->
+			<div class="container">
+				<!-- .modal -->
+				<div class="modal fade" id="pubImg" role="dialog">
+					<!-- <div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<section id="popDettaglioPub" class="">
+							
+							</section> <!-- End Contact Section -->
+						<!-- End Contact Section ->
+						</div>
+					</div> -->
+				</div>
+			</div>
+			
 			<!--POP Il campo di pomodori -->
 			<div class="container">
 				<!-- .modal -->
@@ -278,8 +295,6 @@
 				</div>
 			</div>
 			</div>
-
-
 		</c:if>
 
 		<c:if test="${not empty pageContext.request.remoteUser}">
@@ -311,7 +326,7 @@
 										<td>${pubblicazione.dataPubblicazioneM}</td>
 										<td>
 											<div class="portfolio-wrap">
-												<img src="${pubblicazione.image}" style='width: 100%; '>
+												<img src="data:image/jpg;base64,${pubblicazione.image}" style='width: 100%; '>
 											</div>
 
 										</td>
@@ -386,14 +401,14 @@
 											</div>
 											<div class="form-group">
 												<label for="Anno">Immagine:</label> <input type="file"
-													class="form-control uploadedfile" id="imagePubb"
-													placeholder="immagine" /><!-- onclick="fileuploadinit()" --> 
+													class="form-control uploadedfile" id="imagePubbIn"
+													placeholder="immagine" /> <!-- onclick="fileuploadinit()" --> 
 												<div class="validate"></div>
 											</div>
 											<div id="result"></div>
 											<div class="text-center">
-												<button class="button" type="submit"
-													onclick="insertPublicazione()" value="Inserisci">Inserisci</button>
+												<button class="button" type="submit" onclick="insertPublicazione()" value="Inserisci"
+												data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery">Inserisci</button>
 											</div>
 										</div>
 									</div>

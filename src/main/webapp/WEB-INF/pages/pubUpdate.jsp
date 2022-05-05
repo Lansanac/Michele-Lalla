@@ -34,12 +34,12 @@
 					</div>
 					<div class="form-group">
 						<div class="portfolio-wrap">
-							<img src="${pubData.image}" alt=""
+							<img src="data:image/jpg;base64,${pubData.image}" alt=""
 								style="width: 35%;">
 						</div>
 						<label for="Anno">Immagine:</label> 
 						<input type="file" class="form-control uploadedfile" id="imagePub"
-							placeholder="immagine" value="${pubData.image}"/>
+							placeholder="immagine" />
 					</div>
 					<div id="result"></div>
 					<div class="text-center">

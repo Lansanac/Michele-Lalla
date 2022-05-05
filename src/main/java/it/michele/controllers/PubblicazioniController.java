@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
-import org.apache.log4j.xml.DOMConfigurator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,14 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import it.michele.beans.Biografia;
-import it.michele.beans.Contatto;
-import it.michele.beans.Poesie;
 import it.michele.beans.Pubblicazione;
 import it.michele.beans.ResultMessage;
 import it.michele.controllers.exceptions.ControllerException;
 import it.michele.services.PublicazioeService;
-import it.michele.services.PublicazioneServiceImpl;
 import it.michele.services.exceptions.ServiceException;
 
 
@@ -117,7 +112,7 @@ public class PubblicazioniController {
 	public String openUpdate(@PathVariable("id") Integer id, Model model) throws ControllerException {
 		logger.info("PublicazioneServiceImpl.openUpdate ID"+id);
 
-		System.out.println("<<<<<	updatePoesia	 >>>>>  "+id);
+		System.out.println("<<<<<	updatePoesiaPubblicazione	 >>>>>  "+id);
 		String returnValue = "pubUpdate";
 		Pubblicazione publPubblicazione = new Pubblicazione();
 		try {
@@ -135,8 +130,9 @@ public class PubblicazioniController {
 	}
 
 	@RequestMapping(value="/pubblicazioni/update")
-	public String update(Model model, @ModelAttribute Pubblicazione pubblicazione, BindingResult result, RedirectAttributes attributes) throws ControllerException {
-		logger.info("PublicazioneServiceImpl.update ");
+	public String update(Model model,@ModelAttribute Pubblicazione pubblicazione, BindingResult result, RedirectAttributes attributes) throws ControllerException {
+		logger.info("PublicazioneServiceImpl.update ID: "+pubblicazione.getId());
+		
 		if (result.hasErrors()) {
 			System.out.println("<<<<<	PubblicazioneUpdate	 ERROR		>>>>>");
 			logger.info("PublicazioneServiceImpl.update <<<<<	PubblicazioneUpdate	 ERROR		>>>>>");
@@ -144,7 +140,7 @@ public class PubblicazioniController {
 	        return "lista-pubblicazioni";
 	    }
 		System.out.println("<<<<<	PubblicazioneUpdate	 >>>>>  "+pubblicazione);
-		logger.info("PublicazioneServiceImpl.update <<<<<	PubblicazioneUpdate		>>>>>");
+		logger.info("PublicazioneServiceImpl.q <<<<<	PubblicazioneUpdate		>>>>>");
 		ResultMessage reslteMessage = new ResultMessage();
 		String returnValue = "resultMessage";
 		try {
@@ -155,7 +151,7 @@ public class PubblicazioniController {
 				reslteMessage.setMessage("<h1 style='color:red;'>La pubblicazione non é stato modificato !!!</h1>");
 			}
 			model.addAttribute("data", reslteMessage.getMessage());
-		} catch (ServiceException e) {
+		} catch (Exception e) {
 			model.addAttribute("data", "<h1 style='color:red;'>Errore durante esecuzione</h1>");
 			logger.error("PublicazioneServiceImpl.update Exception -->> ", e);
 			loggerMail.error("PublicazioneServiceImpl.update Exception -->> ", e);

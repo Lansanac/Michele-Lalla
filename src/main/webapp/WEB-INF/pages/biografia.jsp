@@ -255,7 +255,7 @@
 													</td>
 													<td> ${opera.descrizione} </td>
 													<td style="cursor: pointer"> 
-										                <a data-toggle="modal" data-gall="portfolioGallery" data-target="#popUpdateOpera" onclick="updatePrepareOpera('${opera.id}')">Modifica</a>
+										                <a data-toggle="modal" data-target="#popUpdateOpera" data-gall="portfolioGallery" onclick="updatePrepareOpera('${opera.id}')">Modifica</a>
 													</td>
 													<td style="cursor: pointer"> 
 														<a  data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" 
@@ -510,13 +510,13 @@
 				<div class="modal fade" id="popUpdateOpera" role="dialog">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
-							<section id="popUpdateOpera" class="">
+							<section id="popUpdatePremiazioe" class="">
 								
 							</section> <!-- End Contact Section -->                                                                
 						</div>                                      
 					</div>
 				</div>
-			</div>
+			</div>			
 			
 			<div class="container">
 				<!-- .modal -->

@@ -172,7 +172,8 @@
 						<h1>Michele Lalla</h1>
 						<p>
 							Ho scritto: <span class="typed"
-								data-typed-items="  Il campo di pomodori , Vita in B minore, Andrò in America 1 , 70 storie zen occidentali , Le cinque stagioni , Il campo di pomodori "></span>
+								data-typed-items="${pubblicazioni}"></span>
+								<!-- data-typed-items="  Il campo di pomodori , Vita in B minore, Andrò in America 1 , 70 storie zen occidentali , Le cinque stagioni , Il campo di pomodori "></span> --> 
 						</p>
 						<!-- Trovare il senso:<br-->
 					</div>
@@ -298,7 +299,8 @@
 	<!-- Template Main JS File -->
 	<script src="/MicheleProject/components/js/main.js"></script>
 	<script src="/MicheleProject/components/js/index.js"></script>
-
+	<script src="/MicheleProject/components/js/myLoader.js"></script>
+	<!-- <script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script> -->
 
 </body>
 

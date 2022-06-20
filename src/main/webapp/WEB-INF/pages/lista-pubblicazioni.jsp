@@ -47,6 +47,7 @@
 
 <!-- Template Main CSS File -->
 <link href="/MicheleProject/components/css/style.css" rel="stylesheet" />
+
 <style>
 #hero {
 	background-image: url("application/img/michele6.jpg");
@@ -66,7 +67,7 @@
 	  ======================================================== -->
 </head>
 <body>
-
+                
 	<!-- ======= Mobile nav toggle button ======= -->
 	<button type="button" class="mobile-nav-toggle d-xl-none">
 		<i class="icofont-navigation-menu"></i>
@@ -334,9 +335,9 @@
 											<p style="cursor: pointer"><button type="button" 
 											data-toggle="modal" data-target="#popUpdatePub" onclick="updatePreparePub('${pubblicazione.id}')" 
 											class="button">Modifica</button></p>
-											<p style="cursor: pointer"><button type="button" 
-											data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" 
-											onclick="deletePub('${pubblicazione.id}', '${pubblicazione.titolo}')" class="button">Elimina</button></p>
+											<p style="cursor: pointer">
+											<button type="button" data-toggle="modal" data-target="#confirmazione" data-gall="portfolioGallery"
+											onclick="confermaDelete('${pubblicazione.id}', '${pubblicazione.titolo}')" class="button">Elimina</button></p>
 											
 										</td>
 										
@@ -451,6 +452,23 @@
 			</div>
 		</div>
 
+		<!-- Modal -->
+		<div class="modal fade" id="confirmazione" role="dialog">
+			<div class="modal-dialog" >
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="section-title">
+							<h2>Elimina Pubblicazione</h2>
+						</div>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div id="myTitele"></div>
+				</div>
+			</div>
+		</div>
 
 
 	</main>
@@ -461,7 +479,8 @@
 		<jsp:include page="../template/menuFooter.jsp" />
 	</footer>
 	<!-- End  Footer -->
-
+	
+	</div>
 	!-- Vendor JS Files -->
 	<script src="/MicheleProject/components/vendor/jquery/jquery.min.js"></script>
 	<script
@@ -485,6 +504,8 @@
 	<!-- Template Main JS File -->
 	<script src="/MicheleProject/components/js/main.js"></script>
 	<script src="/MicheleProject/components/js/publicazione.js"></script>
+	<script src="/MicheleProject/components/js/myLoader.js"></script>
+	<script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
 
 
 </body>

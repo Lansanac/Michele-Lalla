@@ -85,6 +85,7 @@ public class RaccontiController {
 			}else {
 				reslteMessage.setMessage("<h1 style='color:red;'>Il raconto non é stato inserito !!!</h1>");
 			}
+			System.out.println("<<<<<	InsertRacconti	 >>>>>  "+data);
 			model.addAttribute("data", reslteMessage.getMessage());
 		} catch (ServiceException e) {
 			model.addAttribute("data", "<h1 style='color:red;'> Errore durante esecuzione </h1>");

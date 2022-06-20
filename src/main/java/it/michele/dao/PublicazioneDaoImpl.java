@@ -33,6 +33,34 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 	private static Logger logger = Logger.getLogger(PublicazioneDaoImpl.class);
 	private static Logger loggerMail = Logger.getLogger("sendMail");
 
+	public List<Pubblicazione> getTitolo() throws Exception{
+		logger.info("PublicazioneDaoImpl.getTitolo ");
+
+		List<Pubblicazione> pubblicaziones = new ArrayList<Pubblicazione>();
+		String query = "SELECT titolo FROM pubblicazioni";
+
+		Connection connection = DataSourceUtils.getConnection(dataSource);
+
+		try {
+			PreparedStatement ps = connection.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Pubblicazione pubblicazione = new Pubblicazione();
+				pubblicazione.setTitolo(rs.getString("titolo"));
+				pubblicaziones.add(pubblicazione);
+			}
+		}catch (SQLException e) {
+			logger.error("PublicazioneDaoImpl.getTitolo -->>  SQLException -->> ", e);
+			loggerMail.error("PublicazioneDaoImpl.getTitolo -->>  SQLException -->> ", e);
+			e.printStackTrace();
+			throw e;
+		} finally {
+
+			DataSourceUtils.releaseConnection(connection, dataSource);
+		}
+		return pubblicaziones;
+	}
+	
 	@Override
 	public List<Pubblicazione> getListaPubblicazione() throws Exception {
 		logger.info("PublicazioneDaoImpl.getListaPubblicazione ");

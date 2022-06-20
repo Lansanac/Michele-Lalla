@@ -79,7 +79,7 @@ public class RaccontiServiceImpl implements RaccontiService{
 		if(racconti.getTitolo()!= null && racconti.getDescrizione()!= null && racconti.getAnnoPubblicazione() !=null) {
 			Integer anno = Integer.parseUnsignedInt(racconti.getAnnoPubblicazione());
 			data = raccontiDao.insert(racconti.getTitolo(), racconti.getDescrizione(), anno);
-			logger.info("RaccontiServiceImpl.insert Racont inserita!");
+			logger.info("RaccontiServiceImpl.insert Racconto inserita!");
         	
 		}else {
 			Exception e = new Exception();

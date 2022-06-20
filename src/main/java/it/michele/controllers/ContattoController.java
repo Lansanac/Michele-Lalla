@@ -48,8 +48,7 @@ public class ContattoController {
 			//premiazionis = biografiaService.getListaPremiazioni();
 			contattos = contattoService.getListContatto();
 			model.addAttribute("contatti", contattos);
-			System.out.println("<<<<<	Contattos	 >>>>>  "+contattos);
-
+			logger.info(" <<<<<	 Contattos	 >>>>>  "+contattos);
 		}catch (Exception e) {
 			logger.error("ContattoController.list Exception -->> ", e);
 			loggerMail.error("ContattoController.list Exception -->> ", e);

@@ -39,7 +39,7 @@
 						</div>
 						<label for="Anno">Immagine:</label> 
 						<input type="file" class="form-control uploadedfile" id="imagePub"
-							placeholder="immagine" />
+							placeholder="immagine" value="data:image/jpg;base64,${pubData.image}" />
 					</div>
 					<div id="result"></div>
 					<div class="text-center">

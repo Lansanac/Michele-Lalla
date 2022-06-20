@@ -284,5 +284,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<!-- Template Main JS File -->
 	<script src="/MicheleProject/components/js/main.js"></script>
 	<script src="/MicheleProject/components/js/contattoPage.js"></script>
+	<script src="/MicheleProject/components/js/myLoader.js"></script>
+	<script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
+	
 </body>
 </html>

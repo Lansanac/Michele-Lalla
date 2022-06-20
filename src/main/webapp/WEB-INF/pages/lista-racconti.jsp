@@ -48,7 +48,12 @@
 
 <!-- Template Main CSS File -->
 <link href="/MicheleProject/components/css/style.css" rel="stylesheet">
-<link href="/MicheleProject/components/css/readMore.css" rel="stylesheet">
+<link href="/MicheleProject/components/css/readMore.css"
+	rel="stylesheet">
+	
+	
+	 
+	
 <!-- =======================================================
 		  * Template Name: iPortfolio - v1.5.0
 		  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -61,7 +66,6 @@
 
 <body>
 
-
 	<!-- ======= Mobile nav toggle button ======= -->
 	<button type="button" class="mobile-nav-toggle d-xl-none">
 		<i class="icofont-navigation-menu"></i>
@@ -72,9 +76,8 @@
 		<div class="d-flex flex-column">
 
 			<div class="profile">
-				<img
-					src="http://localhost:8080/MicheleProject/application/img/michele.jpg"
-					alt="" class="img-fluid rounded-circle">
+				<img src="/MicheleProject/application/img/michele.jpg" alt=""
+					class="img-fluid rounded-circle">
 				<h1 class="text-light">
 					<a href="index.html">Michele Lalla</a>
 				</h1>
@@ -100,11 +103,11 @@
 							class="bx bx-book-content"></i>Racconti</a></li>
 					<c:if test="${empty pageContext.request.remoteUser}">
 						<li><a href='<spring:url value="/pubblicazioni" />'><i
-							class="bx bx-server"></i>Pubblicazioni</a></li>
+								class="bx bx-server"></i>Pubblicazioni</a></li>
 					</c:if>
 					<c:if test="${not empty pageContext.request.remoteUser}">
 						<li><a href='<spring:url value="/pubblicazioni/list" />'><i
-							class="bx bx-server"></i>Pubblicazioni</a></li>
+								class="bx bx-server"></i>Pubblicazioni</a></li>
 					</c:if>
 					<c:if test="${empty pageContext.request.remoteUser}">
 						<li><a href='<spring:url value="/contattoPage" />'><i
@@ -172,8 +175,8 @@
 										<a data-toggle="modal" data-target="#popUpdate"
 											data-gall="portfolioGallery"
 											onclick="updatePrepare('${item.id}')" class="button">Modifica</a>
-										<a data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery"
-											onclick="deleteRacconti('${item.id}', '${item.titolo}')"
+										<a data-toggle="modal" data-target="#confirmazione" data-gall="portfolioGallery"
+											onclick="confermaDelete('${item.id}', '${item.titolo}')"
 											class="button">Elimina</a>
 
 									</div>
@@ -239,8 +242,9 @@
 											</div>
 											<div id="result"></div>
 											<div class="text-center">
-												<button class="button" type="submit"
-													onclick="insertRacconto()" value="Inserisci">Inserisci</button>
+												<button class="button" type="submit" onclick="insertRacconto()" value="Inserisci"
+													data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery"
+													>Inserisci</button>
 											</div>
 										</div>
 									</div>
@@ -281,6 +285,26 @@
 				</div>
 			</div>
 		</div>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="confirmazione" role="dialog">
+			<div class="modal-dialog" >
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="section-title">
+							<h2>Elimina Racconto</h2>
+						</div>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div id="myTitele"></div>
+				</div>
+			</div>
+		</div>
+
 
 		<section class="inner-page">
 			<div class="container">
@@ -324,7 +348,15 @@
 	<!-- Template Main JS File -->
 	<script src="/MicheleProject/components/js/main.js"></script>
 	<script src="/MicheleProject/components/js/racconti.js"></script>
+	<script src="/MicheleProject/components/js/myLoader.js"></script>
+	<script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
 
+
+	
+  
 
 </body>
+
+
+
 </html>

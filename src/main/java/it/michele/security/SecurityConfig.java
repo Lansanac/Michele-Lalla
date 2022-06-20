@@ -105,7 +105,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-	    web.ignoring().antMatchers("http://localhost:8080/MicheleProject/",
+	    web.ignoring().antMatchers("**/MicheleProject/",
 	    		"**/biografia/list", "**/poesia/list", "**/racconti/list", "**/pubblicazioni", "**/contattoPage",
 	    		"/components/**", "/application/**", "**/list", "/css/**", "/js/**", "/img/**", "/icon/**");
 	}

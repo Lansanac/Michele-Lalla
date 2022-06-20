@@ -53,6 +53,20 @@ public class PublicazioneServiceImpl implements PublicazioeService {
 	}
 
 	@Override
+	public List<Pubblicazione> getTitolo() throws ServiceException {
+		logger.info("PublicazioneServiceImpl.getTitolo ");
+
+		List<Pubblicazione> publPubblicaziones = new ArrayList<Pubblicazione>();
+		try {
+			publPubblicaziones = publicazineDao.getTitolo();
+		} catch (Exception e) {
+			logger.error("PublicazioneServiceImpl.getTitolo Exception -->> ", e);
+			e.printStackTrace();
+		}
+		return publPubblicaziones;
+	}
+	
+	@Override
 	public List<Pubblicazione> getListPubblicazione() throws ServiceException {
 		logger.info("PublicazioneServiceImpl.getListPubblicazione ");
 

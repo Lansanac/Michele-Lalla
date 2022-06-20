@@ -68,7 +68,7 @@
 			<div class="d-flex flex-column">
 	
 				<div class="profile">
-					<img src="http://localhost:8080/MicheleProject/application/img/michele.jpg" alt=""
+					<img src="/MicheleProject/application/img/michele.jpg" alt=""
 						class="img-fluid rounded-circle">
 					<h1 class="text-light">
 						<a href="index.html">Michele Lalla</a>
@@ -163,7 +163,7 @@
 						<c:if test="${ empty pageContext.request.remoteUser}">
 							<div class="row">
 								<div class="col-lg-4" data-aos="fade-right">
-									<img id="michele2" src="http://localhost:8080/MicheleProject/application/img/michele2.jpg"
+									<img id="michele2" src="/MicheleProject/application/img/michele2.jpg"
 										class="img-fluid" alt="">
 								</div>
 								<div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
@@ -258,8 +258,8 @@
 										                <a data-toggle="modal" data-target="#popUpdateOpera" data-gall="portfolioGallery" onclick="updatePrepareOpera('${opera.id}')">Modifica</a>
 													</td>
 													<td style="cursor: pointer"> 
-														<a  data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" 
-														onclick="deleteOpera('${opera.id}', '${opera.descrizione}')" >Elimina</a>
+														<a  data-toggle="modal" data-target="#confirmazioneO" data-gall="portfolioGallery" 
+														onclick="confermaDeleteO('${opera.id}', '${opera.descrizione}')" >Elimina</a>
 													</td>
 												</tr>			
 											</c:forEach>
@@ -307,7 +307,8 @@
 												<c:if test="${not empty pageContext.request.remoteUser}">	
 													<div class="portfolio-links">
 										                <a data-toggle="modal" data-target="#popUpdate" data-gall="portfolioGallery" onclick="updatePrepare('${item.id}')" class="button">Modifica</a>
-								                		<a data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" onclick="deletePremiazione('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
+								                		<a data-toggle="modal" data-target="#confirmazione"	data-gall="portfolioGallery"
+															onclick="confermaDeleteP('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
 										             </div>
 									             </c:if>
 											</div>
@@ -331,7 +332,8 @@
 												<c:if test="${not empty pageContext.request.remoteUser}">	
 													<div class="portfolio-links">
 										                <a data-toggle="modal" data-target="#popUpdate" data-gall="portfolioGallery" onclick="updatePrepare('${item.id}')" class="button">Modifica</a>
-								                		<a data-toggle="modal" data-target="#popDelete" data-gall="portfolioGallery" onclick="deletePremiazione('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
+								                		<a data-toggle="modal" data-target="#confirmazione"	data-gall="portfolioGallery"
+															onclick="confermaDeleteP('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
 										             </div>
 									             </c:if>
 											</div>
@@ -355,7 +357,8 @@
 												<c:if test="${not empty pageContext.request.remoteUser}">	
 													<div class="portfolio-links">
 										                <a data-toggle="modal" data-target="#popUpdate" data-gall="portfolioGallery" onclick="updatePrepare('${item.id}')" class="button">Modifica</a>
-								                		<a data-toggle="modal" data-target="#popDelete" data-gall="portfolioGallery" onclick="deletePremiazione('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
+								                		<a data-toggle="modal" data-target="#confirmazione" data-gall="portfolioGallery"
+															onclick="confermaDeleteP('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
 										             </div>
 									             </c:if>
 											</div>
@@ -430,7 +433,8 @@
 												</div>
 												<div id="result"></div>
 												<div class="text-center">
-													<button class="button" type="submit" onclick="insertPremiazioe()" value="Inserisci">Inserisci</button>
+													<button class="button" type="submit" onclick="insertPremiazioe()" value="Inserisci"
+														data-toggle="modal" data-target="#myReslteP" data-gall="portfolioGallery">Inserisci</button>
 												</div>
 										</div>
 							        </div>
@@ -486,7 +490,8 @@
 												</div>
 												<div id="result"></div>
 												<div class="text-center">
-													<button class="button" type="submit" onclick="insertOpera()" value="Inserisci">Inserisci</button>
+													<button class="button" type="submit" onclick="insertOpera()" value="Inserisci"
+														data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery">Inserisci</button>
 												</div>
 										</div>
 							        </div>
@@ -505,8 +510,9 @@
 				</div>
 			</div>
 			
+			<!-- .modal Modifica Opere-->
 			<div class="container">
-				<!-- .modal -->
+				
 				<div class="modal fade" id="popUpdateOpera" role="dialog">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
@@ -518,8 +524,9 @@
 				</div>
 			</div>			
 			
+			<!-- .modal Modifica Pre -->
 			<div class="container">
-				<!-- .modal -->
+				
 				<div class="modal fade" id="popUpdate" role="dialog">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
@@ -531,7 +538,7 @@
 				</div>
 			</div>
 			
-			<!-- Resulte -->
+			<!-- Resulte Opere-->
 			<div class="container">
 				<!-- .modal -->
 				<div class="modal fade" id="popReslte" role="dialog">
@@ -543,6 +550,54 @@
 					</div>
 				</div>
 			</div>
+			
+			<!-- Resulte Pre-->
+			<div class="container">
+				<!-- .modal -->
+				<div class="modal fade" id="popReslte" role="dialog">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<section id="myReslteP" class=""></section>
+							<!-- End Contact Section -->
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		<!-- Modal -->
+		<div class="modal fade" id="confirmazioneO" role="dialog">
+			<div class="modal-dialog" >
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="section-title">
+							<h2>Elimina L'opera</h2>
+						</div>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div id="myTitele"></div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="confirmazione" role="dialog">
+			<div class="modal-dialog" >
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="section-title">
+							<h2>Elimina Premiazione</h2>
+						</div>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div id="myTiteleP"></div>
+				</div>
+			</div>
+		</div>
 	
 			<section class="inner-page">
 				<div class="container">
@@ -580,7 +635,8 @@
 		<!-- Template Main JS File -->
 		<script src="/MicheleProject/components/js/main.js"></script>
 		<script src="/MicheleProject/components/js/biografia.js"></script>		
-	
+		<script src="/MicheleProject/components/js/myLoader.js"></script>
+		<script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
 	
 	</body>
 

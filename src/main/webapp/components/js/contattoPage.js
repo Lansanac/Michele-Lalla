@@ -16,7 +16,7 @@ function sendMessage() {
 	console.log(jsonData);
 	if (contol(nomeCognome, email, soggetto, messaggio)) {
 		$.ajax({
-			url: "http://localhost:8080/MicheleProject/messaggio",
+			url: "MicheleProject/messaggio",
 			type: "POST",
 			data: jsonData,
 			success : function(resultMessage) {
@@ -31,12 +31,13 @@ function sendMessage() {
 
 }
 
+/*
 function updatePrepare(id) {
 
 	var jsonData = { id: id }; //Array 
 
 	$.ajax({
-		url: "http://localhost:8080/MicheleProject/racconti/getRacconto/" + id,
+		url: "MicheleProject/racconti/getRacconto/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(raccontiUpdate) {
@@ -60,7 +61,7 @@ function update(id) {
 	if (contol(titolo, descrizione, anno)) {
 
 		$.ajax({
-			url: "http://localhost:8080/MicheleProject/racconti/updateRacconto",
+			url: "MicheleProject/racconti/updateRacconto",
 			type: "POST",
 			data: jsonData,
 			success : function(resultMessage) {
@@ -82,7 +83,7 @@ function deleteRacconti(id, titolo) {
 	if (result == true) {
 		var jsonData = { id: id }; //Array
 		$.ajax({
-			url: "http://localhost:8080/MicheleProject/racconti/deletRacconto/" + id,
+			url: "MicheleProject/racconti/deletRacconto/" + id,
 			type: "GET",
 			data: jsonData,
 			success : function(resultMessage) {
@@ -94,7 +95,7 @@ function deleteRacconti(id, titolo) {
 	}
 
 }
-
+*/
 function contol(nomeCognome, email, soggetto, messaggio) {
 	if (nomeCognome != "" && email != "" && soggetto != "" && messaggio != "") {
 		return true;
@@ -105,5 +106,5 @@ function contol(nomeCognome, email, soggetto, messaggio) {
 function refresh(){
 	setTimeout(function(){// wait for 5 secs(2)
          location.reload(); // then reload the page.(3)
-    }, 1000);
+    }, 100);
 }

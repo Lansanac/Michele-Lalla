@@ -44,7 +44,7 @@
 	href="components/vendor/owl.carousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
 <link
-	href="http://localhost:8080/MicheleProject/components/vendor/aos/aos.css"
+	href="/MicheleProject/components/vendor/aos/aos.css"
 	rel="stylesheet">
 
 <!-- Template Main CSS File -->

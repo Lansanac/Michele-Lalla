@@ -60,7 +60,7 @@
 	
 			<div class="profile">
 				<img
-					src="http://localhost:8080/MicheleProject/application/img/michele.jpg"
+					src="/MicheleProject/application/img/michele.jpg"
 					alt="" class="img-fluid rounded-circle">
 				<h1 class="text-light">
 					<a href="index.html">Michele Lalla</a>
@@ -162,14 +162,16 @@
 										<c:if test="${not empty pageContext.request.remoteUser}">
 											<div class="portfolio-links">
 								                <a data-toggle="modal" data-target="#popUpdate" data-gall="portfolioGallery" onclick="updatePrepare('${item.id}')" class="button">Modifica</a>
-						                		<a data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" onclick="deletePoesia('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
+						                		<a data-toggle="modal" data-target="#confirmazione"	data-gall="portfolioGallery"
+													onclick="confermaDelete('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
 								             </div>
 								        </c:if>    
 									</div>
 								</p>
 							</div>
 							<% 
-							i++; }
+							i++;	
+						}
 					else if(i==2){
 					%>
 							<div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
@@ -183,7 +185,8 @@
 										<c:if test="${not empty pageContext.request.remoteUser}">
 											<div class="portfolio-links">
 								                <a data-toggle="modal" data-target="#popUpdate" data-gall="portfolioGallery" onclick="updatePrepare('${item.id}')" class="button">Modifica</a>
-						                		<a data-toggle="modal" data-target="#popDelete" data-gall="portfolioGallery" onclick="deletePoesia('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
+						                		<a data-toggle="modal" data-target="#confirmazione"	data-gall="portfolioGallery"
+													onclick="confermaDelete('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
 								             </div>
 								        </c:if>    
 									</div>
@@ -204,7 +207,8 @@
 										<c:if test="${not empty pageContext.request.remoteUser}">
 											<div class="portfolio-links">
 								                <a data-toggle="modal" data-target="#popUpdate" data-gall="portfolioGallery" onclick="updatePrepare('${item.id}')" class="button">Modifica</a>
-						                		<a data-toggle="modal" data-target="#popDelete" data-gall="portfolioGallery" onclick="deletePoesia('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
+						                		<a data-toggle="modal" data-target="#confirmazione"	data-gall="portfolioGallery"
+													onclick="confermaDelete('${item.id}', '${item.titolo}')" class="button" >Elimina</a>
 								             </div>
 								        </c:if>    
 									</div>
@@ -268,7 +272,8 @@
 											</div>
 											<div id="result"></div>
 											<div class="text-center">
-												<button data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" class="button" type="submit" onclick="insertPoesia()" value="Inserisci">Inserisci</button>
+												<button data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" class="button" type="submit" 
+													onclick="insertPoesia()" value="Inserisci">Inserisci</button>
 											</div>
 									</div>
 						        </div>
@@ -287,8 +292,10 @@
 			</div>
 		</div>
 		
+		
+		<!-- .modal Modifica -->
 		<div class="container">
-			<!-- .modal -->
+			
 			<div class="modal fade" id="popUpdate" role="dialog">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
@@ -311,7 +318,24 @@
 				</div>
 			</div>
 		</div>
-		
+	
+		<!-- Modal Elimina -->
+		<div class="modal fade" id="confirmazione" role="dialog">
+			<div class="modal-dialog" >
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="section-title">
+							<h2>Elimina Poesia</h2>
+						</div>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div id="myTitele"></div>
+				</div>
+			</div>
+		</div>		
 
 		<section class="inner-page">
 			<div class="container">
@@ -347,7 +371,8 @@
 		<!-- Template Main JS File -->
 		<script src="/MicheleProject/components/js/main.js"></script>
 		<script src="/MicheleProject/components/js/poesie.js"></script>		
-	
+	<script src="/MicheleProject/components/js/myLoader.js"></script>
+	<script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
 
 </body>
 

@@ -122,7 +122,8 @@ public class ContattoServiceImpl implements ContattoService {
 			String title = "Send Email";
 			String res = "Il messaggio é sta inviato con successo...";
 			String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
-
+			
+			
 			out.println(docType + "<html>\n" + 
 					"<head><title>" + title + "</title></head>\n" + 
 						"<body bgcolor = \"#f0f0f0\">\n" + 

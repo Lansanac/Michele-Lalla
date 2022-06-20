@@ -100,11 +100,11 @@
 							class="bx bx-book-content"></i>Racconti</a></li>
 					<c:if test="${empty pageContext.request.remoteUser}">
 						<li><a href='<spring:url value="/pubblicazioni/list" />'><i
-							class="bx bx-server"></i>Pubblicazioni</a></li>
+								class="bx bx-server"></i>Pubblicazioni</a></li>
 					</c:if>
 					<c:if test="${not empty pageContext.request.remoteUser}">
 						<li><a href='<spring:url value="/pubblicazioni/list" />'><i
-							class="bx bx-server"></i>Pubblicazioni</a></li>
+								class="bx bx-server"></i>Pubblicazioni</a></li>
 					</c:if>
 					<c:if test="${empty pageContext.request.remoteUser}">
 						<li><a href='<spring:url value="/contattoPage" />'><i
@@ -165,14 +165,15 @@
 		<section id="hero"
 			class="d-flex flex-column justify-content-center align-items-center">
 			<div class="container">
-
-
+			
+			
 				<div id="index">
 					<div class="hero-container" data-aos="fade-in">
 						<h1>Michele Lalla</h1>
 						<p>
 							Ho scritto: <span class="typed"
-								data-typed-items="  Il campo di pomodori , Vita in B minore, Andrò in America 1 , 70 storie zen occidentali , Le cinque stagioni , Il campo di pomodori "></span>
+								data-typed-items=" ${pubblicazioni}"
+								></span>
 						</p>
 						<!-- Trovare il senso:<br-->
 					</div>
@@ -298,7 +299,7 @@
 	<!-- Template Main JS File -->
 	<script src="/MicheleProject/components/js/main.js"></script>
 	<script src="/MicheleProject/components/js/index.js"></script>
-
+	<script src="/MicheleProject/components/js/myLoader.js"></script>
 
 </body>
 

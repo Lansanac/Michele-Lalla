@@ -1,5 +1,6 @@
 package it.michele.controllers;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +55,6 @@ public class BiografiaController {
 			System.out.println("<<<<<	OPERE	 >>>>>  "+operes);
 
 			list(model,  premiazionis);
-			
 		}catch (Exception e) {
 			logger.error("BiografiaController.list Exception -->> ", e);
 			loggerMail.error("BiografiaController.list Exception -->> ", e);

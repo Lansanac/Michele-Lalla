@@ -38,18 +38,18 @@ public class PubblicazioniController {
 	@RequestMapping(value="/pubblicazioni/list")
 	public String list(Model model) {
 		BasicConfigurator.configure();
-		logger.info("PublicazioneServiceImpl.list ");
+		logger.info("PubblicazioniController.list ");
 		String returnValue = "lista-pubblicazioni";
 		List<Pubblicazione> pubblicaziones =  new ArrayList<Pubblicazione>(); 
 		try {
 			pubblicaziones = publicazioneService.getListPubblicazione();
 			model.addAttribute("pubblicazione", pubblicaziones);
 			System.out.println("<<<<<	Pubblicazioni	 >>>>>  "+pubblicaziones);
-			logger.info("PublicazioneServiceImpl.list "+pubblicaziones);
+			logger.info("PubblicazioniController.list "+pubblicaziones);
 		}catch (Exception e) {
 			model.addAttribute(returnValue, e.getMessage());
-			logger.error("PublicazioneServiceImpl.list Exception -->> ", e);
-			loggerMail.error("PublicazioneServiceImpl.list Exception -->> ", e);
+			logger.error("PubblicazioniController.list Exception -->> ", e);
+			loggerMail.error("PubblicazioniController.list Exception -->> ", e);
 		}
 			
 		return returnValue;
@@ -57,7 +57,7 @@ public class PubblicazioniController {
 	
 	@RequestMapping("/pubblicazioni/dettaglio/{id}")
 	public String dettaglio(@PathVariable("id") Integer id, Model model) throws ControllerException {
-		logger.info("PublicazioneServiceImpl.dettaglio ID: "+id);
+		logger.info("PubblicazioniController.dettaglio ID: "+id);
 
 		System.out.println("<<<<<	dettaglio pubblicazione	 >>>>>  "+id);
 		String returnValue = "pubDettaglio";
@@ -67,8 +67,8 @@ public class PubblicazioniController {
 			model.addAttribute("dettaglio", publPubblicazione);
 			
 		} catch (ServiceException e) {
-			logger.error("PublicazioneServiceImpl.dettaglio Exception -->> ", e);
-			loggerMail.error("PublicazioneServiceImpl.dettaglio Exception -->> ", e);
+			logger.error("PubblicazioniController.dettaglio Exception -->> ", e);
+			loggerMail.error("PubblicazioniController.dettaglio Exception -->> ", e);
 
 			throw new ControllerException(e);
 		}
@@ -78,17 +78,17 @@ public class PubblicazioniController {
 	
 	@RequestMapping("/pubblicazioni/insert")
 	public String insert(Model model, @ModelAttribute Pubblicazione pubblicazione, BindingResult result) throws ControllerException {
-		logger.info("PublicazioneServiceImpl.insert ");
+		logger.info("PubblicazioniController.insert ");
 		String returnValue = "resultMessage";
 
 		if (result.hasErrors()) {
 			System.out.println("<<<<<	InsertPublicazione	 ERROR		>>>>>");
-			logger.info("PublicazioneServiceImpl.insert <<<<<	InsertPublicazione	 ERROR		>>>>>");
-			loggerMail.error("PublicazioneServiceImpl.insert <<<<<	InsertPublicazione	 ERROR		>>>>>");
+			logger.info("PubblicazioniController.insert <<<<<	InsertPublicazione	 ERROR		>>>>>");
+			loggerMail.error("PubblicazioniController.insert <<<<<	InsertPublicazione	 ERROR		>>>>>");
             return "lista-pubblicazioni";
         }
 		System.out.println("<<<<<	InsertPublicazione	 >>>>>  "+pubblicazione);
-		logger.info("PublicazioneServiceImpl.insert <<<<<	InsertPublicazione	 >>>>>  "+pubblicazione);
+		logger.info("PubblicazioniController.insert <<<<<	InsertPublicazione	 >>>>>  "+pubblicazione);
 		ResultMessage reslteMessage = new ResultMessage();
 		try {
 			boolean data = publicazioneService.insert(pubblicazione);
@@ -100,8 +100,8 @@ public class PubblicazioniController {
 			model.addAttribute("data", reslteMessage.getMessage());
 		} catch (ServiceException e) {
 			model.addAttribute("data", "<h1 style='color:red;'>Errore durante esecuzione</h1>");
-			logger.error("PublicazioneServiceImpl.insert Exception -->> ", e);
-			loggerMail.error("PublicazioneServiceImpl.insert Exception -->> ", e);
+			logger.error("PubblicazioniController.insert Exception -->> ", e);
+			loggerMail.error("PubblicazioniController.insert Exception -->> ", e);
 			throw new ControllerException(e);
 		}
 		
@@ -110,7 +110,7 @@ public class PubblicazioniController {
 
 	@RequestMapping("/pubblicazioni/getPubblicazione/{id}")
 	public String openUpdate(@PathVariable("id") Integer id, Model model) throws ControllerException {
-		logger.info("PublicazioneServiceImpl.openUpdate ID"+id);
+		logger.info("PubblicazioniController.openUpdate ID"+id);
 
 		System.out.println("<<<<<	updatePoesiaPubblicazione	 >>>>>  "+id);
 		String returnValue = "pubUpdate";
@@ -121,8 +121,8 @@ public class PubblicazioniController {
 			
 		} catch (ServiceException e) {
 			model.addAttribute("pubData", "<h1 style='color:red;'>Errore durante esecuzione</h1>");
-			logger.error("PublicazioneServiceImpl.openUpdate Exception -->> ", e);
-			loggerMail.error("PublicazioneServiceImpl.openUpdate Exception -->> ", e);
+			logger.error("PubblicazioniController.openUpdate Exception -->> ", e);
+			loggerMail.error("PubblicazioniController.openUpdate Exception -->> ", e);
 			throw new ControllerException(e);
 		}
 		
@@ -131,16 +131,16 @@ public class PubblicazioniController {
 
 	@RequestMapping(value="/pubblicazioni/update")
 	public String update(Model model,@ModelAttribute Pubblicazione pubblicazione, BindingResult result, RedirectAttributes attributes) throws ControllerException {
-		logger.info("PublicazioneServiceImpl.update ID: "+pubblicazione.getId());
+		logger.info("PubblicazioniController.update ID: "+pubblicazione.getId());
 		
 		if (result.hasErrors()) {
 			System.out.println("<<<<<	PubblicazioneUpdate	 ERROR		>>>>>");
-			logger.info("PublicazioneServiceImpl.update <<<<<	PubblicazioneUpdate	 ERROR		>>>>>");
-			loggerMail.error("PublicazioneServiceImpl.update <<<<<	PubblicazioneUpdate	 ERROR		>>>>>");
+			logger.info("PubblicazioniController.update <<<<<	PubblicazioneUpdate	 ERROR		>>>>>");
+			loggerMail.error("PubblicazioniController.update <<<<<	PubblicazioneUpdate	 ERROR		>>>>>");
 	        return "lista-pubblicazioni";
 	    }
 		System.out.println("<<<<<	PubblicazioneUpdate	 >>>>>  "+pubblicazione);
-		logger.info("PublicazioneServiceImpl.q <<<<<	PubblicazioneUpdate		>>>>>");
+		logger.info("PubblicazioniController.q <<<<<	PubblicazioneUpdate		>>>>>");
 		ResultMessage reslteMessage = new ResultMessage();
 		String returnValue = "resultMessage";
 		try {
@@ -153,8 +153,8 @@ public class PubblicazioniController {
 			model.addAttribute("data", reslteMessage.getMessage());
 		} catch (Exception e) {
 			model.addAttribute("data", "<h1 style='color:red;'>Errore durante esecuzione</h1>");
-			logger.error("PublicazioneServiceImpl.update Exception -->> ", e);
-			loggerMail.error("PublicazioneServiceImpl.update Exception -->> ", e);
+			logger.error("PubblicazioniController.update Exception -->> ", e);
+			loggerMail.error("PubblicazioniController.update Exception -->> ", e);
 			throw new ControllerException(e);
 		}
 		return returnValue;
@@ -162,7 +162,7 @@ public class PubblicazioniController {
 
 	@RequestMapping("/pubblicazioni/delet/{id}")
 	public String delete(@PathVariable("id") Integer id, Model model) throws ControllerException {
-		logger.info("PublicazioneServiceImpl.delete ID"+id);
+		logger.info("PubblicazioniController.delete ID"+id);
 
 		System.out.println("<<<<<	deletPubblicazioni	>>>>>  "+id);
 		String returnValue = "resultMessage";
@@ -177,8 +177,8 @@ public class PubblicazioniController {
 			model.addAttribute("data", reslteMessage.getMessage());
 		} catch (ServiceException e) {
 			model.addAttribute("data", "<h1 style='color:red;'>Errore durante esecuzione</h1>");
-			logger.error("PublicazioneServiceImpl.delete Exception -->> ", e);
-			loggerMail.error("PublicazioneServiceImpl.delete Exception -->> ", e);
+			logger.error("PubblicazioniController.delete Exception -->> ", e);
+			loggerMail.error("PubblicazioniController.delete Exception -->> ", e);
 			throw new ControllerException(e);
 		}
 		return returnValue;

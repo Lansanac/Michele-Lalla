@@ -28,8 +28,9 @@ function insertPublicazione() {
 		var jsonData = { titolo: titolo, description: descrizione, dataPubblicazioneM: anno, image: image }; //Array 
 		//alert("Titolo: " + titolo + ", Descrizione: " + descrizione + ", Anno: " + anno + ", Image: " + image);
 		if (contol(titolo, descrizione, anno)) {
+			$("#popInsert").empty();
 			$.ajax({
-				url: "http://localhost:8080/MicheleProject/pubblicazioni/insert",
+				url: "/MicheleProject/pubblicazioni/insert",
 				type: "POST",
 				data: jsonData,
 				success: function(resultMessage) {
@@ -49,14 +50,15 @@ function insertPublicazione() {
 function updatePreparePub(id) {
 	// alert('CIAO lans   ');
 	var jsonData = { id: id }; //Array 
+	//
 
 	$.ajax({
-		url: "http://localhost:8080/MicheleProject/pubblicazioni/getPubblicazione/" + id,
+		url: "/MicheleProject/pubblicazioni/getPubblicazione/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(pubUpdate) {
 			//alert('SUCCESS:   '+pubUpdate);
-			console.log(pubUpdate);
+			//console.log(pubUpdate);
 			//console.log(data.success);
 			$('#popUpdatePubblicazioni').empty();
 			$('#popUpdatePubblicazioni').append(pubUpdate)
@@ -82,7 +84,7 @@ function dettaglio(id) {
 	var jsonData = { id: id }; //Array 
 
 	$.ajax({
-		url: "http://localhost:8080/MicheleProject/pubblicazioni/dettaglio/" + id,
+		url: "/MicheleProject/pubblicazioni/dettaglio/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(pubDettaglio) {
@@ -102,15 +104,17 @@ function updatePub(id) {
 	var descrizione = $('#descrizionePub').val();
 	var anno = $('#annoPub').val();
 	var image = document.getElementById("imagePub");// $('#imagePub').val();
-	//console.log('=======> ' , image);
+	console.log('=======> ', image);
+
+	/*if(document.getElementById("imagePub").files.length != 0){*/
 	var f;
 	var fReader = new FileReader();
 	fReader.readAsDataURL(image.files[0]);
 	fReader.onloadend = function(event) {
 
 		f = event.target.result;
-		console.log("IMG ", f);
-		console.log("IMG ", image);
+		//console.log("IMG ", f);
+		//console.log("IMG ", image);
 		var e = f.split(",")[1];
 		var jsonData = { id: id, titolo: titolo, description: descrizione, dataPubblicazioneM: anno, image: e }; //Array 
 
@@ -118,13 +122,36 @@ function updatePub(id) {
 
 
 		if (contol(titolo, descrizione, anno)) {
-
+			$("#popDettaglioPub").empty();
 			$.ajax({
-				url: "http://localhost:8080/MicheleProject/pubblicazioni/update",
+				url: "/MicheleProject/pubblicazioni/update",
 				type: "POST",
 				data: jsonData,
 				success: function(resultMessage) {
-					console.log(resultMessage);
+					//console.log(resultMessage);
+					$('#myReslte').empty();
+					$('#myReslte').append(resultMessage)
+				}
+
+			});
+		} else {
+			alert("Tutti i campi sono obbligatori!!!");
+		}
+	}
+	/*} else {
+		var jsonData = { id: id, titolo: titolo, description: descrizione, dataPubblicazioneM: anno, image: image }; //Array 
+
+		//alert("Id: " + id + ", Titolo: " + titolo + ", Descrizione: " + descrizione + ", Anno: " + anno + ", Image: " + f);
+
+
+		if (contol(titolo, descrizione, anno)) {
+
+			$.ajax({
+				url: "/MicheleProject/pubblicazioni/update",
+				type: "POST",
+				data: jsonData,
+				success: function(resultMessage) {
+					//console.log(resultMessage);
 					$('#myReslte').empty();
 					$('#myReslte').append(resultMessage)
 				}
@@ -134,26 +161,41 @@ function updatePub(id) {
 			alert("Tutti i campi sono obbligatori!!!");
 		}
 
-	}
+	}*/
 
 }
 
-function deletePub(id, titolo) {
-	var result = window.confirm('Sei sicuro di volere eliminare la pubblicazione: ' + titolo);
+function confermaDelete(id, titolo) {
+	//alert("Ecco mi LANS!!!");
+	var messagio = "";
+	messagio += "<div class='modal-body'>";
+	messagio += "<h4> Sei sicuro di volere elimina:  <h4><h3>" + titolo + "</h3>";
+	messagio += "<div class='modal-footer'>";
+	messagio += "	<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
+	messagio += "   <button type='button' class='button' data-toggle='modal' data-target='#popReslte' data-gall='portfolioGallery' ";
+	messagio += "	   	onclick='deletePub(" + id + ")'>Conferma</button>";
+	messagio += "</div>";
+	console.log(messagio);
+	$('#myTitele').empty();
+	$('#myTitele').append(messagio);
+}
 
-	if (result == true) {
-		var jsonData = { id: id }; //Array
-		$.ajax({
-			url: "http://localhost:8080/MicheleProject/pubblicazioni/delet/" + id,
-			type: "GET",
-			data: jsonData,
-			success: function(resultMessage) {
-				console.log(resultMessage);
-				$('#myReslte').empty();
-				$('#myReslte').append(resultMessage)
-			}
-		});
-	}
+function deletePub(id) {
+	//var result = window.confirm('Sei sicuro di volere eliminare la pubblicazione: ' + titolo);
+	$("#confirmazione").empty();
+	//if (result == true) {
+	var jsonData = { id: id }; //Array
+	$.ajax({
+		url: "/MicheleProject/pubblicazioni/delet/" + id,
+		type: "GET",
+		data: jsonData,
+		success: function(resultMessage) {
+			//console.log(resultMessage);
+			$('#myReslte').empty();
+			$('#myReslte').append(resultMessage)
+		}
+	});
+	//}
 
 }
 
@@ -168,5 +210,5 @@ function contol(titolo, descrizione, anno) {
 function refresh() {
 	setTimeout(function() {// wait for 5 secs(2)
 		location.reload(); // then reload the page.(3)
-	}, 1000);
+	}, 100);
 }

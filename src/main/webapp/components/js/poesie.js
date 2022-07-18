@@ -57,7 +57,8 @@ function insertPoesia() {
 
 		});
 	} else {
-		alert("Tutti i campi sono obbligatori!!!");
+		campiOblig();
+		//alert("Tutti i campi sono obbligatori!!!");
 	}
 
 }
@@ -100,7 +101,8 @@ function update(id) {
 
 		});
 	} else {
-		alert("Tutti i campi sono obbligatori!!!");
+		campiOblig();
+		//alert("Tutti i campi sono obbligatori!!!");
 	}
 
 }
@@ -147,6 +149,40 @@ function refresh() {
 	setTimeout(function() {// wait for 5 secs(2)
 		location.reload(); // then reload the page.(3)
 	}, 100);
+}
+
+
+function campiOblig() {
+
+	var myhtml = "";
+
+	myhtml += "<div class='container'>";
+	myhtml += "<div class='modal-header'>";
+	myhtml += "	<div class='section-title'>";
+	myhtml += "		<h2>Error message</h2>";
+	myhtml += "	</div>";
+
+	myhtml += "	<button type='button' class='close' aria-label='Close'";
+	myhtml += "		data-dismiss='modal' >";
+	myhtml += "		<span aria-hidden='true'>&times;</span>";
+	myhtml += "	</button>";
+
+	myhtml += "</div>";
+	myhtml += "<div class='modal-body'>";
+	myhtml += "		 <span><h1 style='color:red;'>Tutti i campi sono obbligatori!</h1> </span>";
+
+	myhtml += "</div>";
+	myhtml += "<div class='modal-footer'>";
+	myhtml += "	<div class='social-links mt-3 text-center'>";
+	myhtml += "		<a class='btn btn-default' data-dismiss='modal' > Close </a>";
+	myhtml += "	</div>";
+	myhtml += "</div>";
+	myhtml += "</div>";
+
+	console.log("HTML: ", myhtml);
+	$('#myReslte').empty();
+	$('#myReslte').append(myhtml);
+
 }
 
 /**

@@ -67,7 +67,7 @@
 	  ======================================================== -->
 </head>
 <body>
-                
+
 	<!-- ======= Mobile nav toggle button ======= -->
 	<button type="button" class="mobile-nav-toggle d-xl-none">
 		<i class="icofont-navigation-menu"></i>
@@ -152,60 +152,80 @@
 
 					<div class="row portfolio-container" data-aos="fade-up"
 						data-aos-delay="100">
-						<% int i = 1;%>
-							<c:forEach var="pubblicazione" items="${pubblicazione}">
-						<% if(i==1){%>
+						<%
+						int i = 1;
+						%>
+						<c:forEach var="pubblicazione" items="${pubblicazione}">
+							<%
+							if (i == 1) {
+							%>
 							<div class="col-lg-4 col-md-6 portfolio-item filter-app">
 								<div class="portfolio-wrap">
-									<img class="myImg" src="data:image/jpg;base64,${pubblicazione.image}"
+									<img class="myImg"
+										src="data:image/jpg;base64,${pubblicazione.image}"
 										class="img-fluid" alt="">
 									<div class="portfolio-links">
 										<a href="data:image/jpg;base64,${pubblicazione.image}"
-											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"
-											width="141" height="192" data-target="#popImg"><i
-											class="bx bx-plus"></i></a> <a href="${pubblicazione.description}"
-											title="More Details" data-toggle="modal" onclick="dettaglio('${pubblicazione.id}')"
+											data-gall="portfolioGallery" class="venobox"
+											title="${pubblicazione.titolo}" width="141" height="192"
+											data-target="#popImg"><i class="bx bx-plus"></i></a> <a
+											href="${pubblicazione.description}" title="More Details"
+											data-toggle="modal"
+											onclick="dettaglio('${pubblicazione.id}')"
 											data-target="#pubCampo"><i class="bx bx-link"></i></a>
 									</div>
 								</div>
 							</div>
-						<% 	i++; }
-						else if(i==2){ %>
-						
+							<%
+							i++;
+							} else if (i == 2) {
+							%>
+
 							<div class="col-lg-4 col-md-6 portfolio-item filter-web">
 								<div class="portfolio-wrap">
-									<img class="myImg" src="data:image/jpg;base64,${pubblicazione.image}"
+									<img class="myImg"
+										src="data:image/jpg;base64,${pubblicazione.image}"
 										class="img-fluid" alt="">
 									<div class="portfolio-links">
 										<a href="data:image/jpg;base64,${pubblicazione.image}"
-											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"
-											width="141" height="192" data-target="#popImg"><i
-											class="bx bx-plus"></i></a> <a href="${pubblicazione.description}"
-											title="More Details" data-toggle="modal" onclick="dettaglio('${pubblicazione.id}')"
+											data-gall="portfolioGallery" class="venobox"
+											title="${pubblicazione.titolo}" width="141" height="192"
+											data-target="#popImg"><i class="bx bx-plus"></i></a> <a
+											href="${pubblicazione.description}" title="More Details"
+											data-toggle="modal"
+											onclick="dettaglio('${pubblicazione.id}')"
 											data-target="#pubCampo"><i class="bx bx-link"></i></a>
 									</div>
 								</div>
 							</div>
-					  	<% i++;}
-	       				else if(i==3){ %>
+							<%
+							i++;
+							} else if (i == 3) {
+							%>
 							<div class="col-lg-4 col-md-6 portfolio-item filter-app">
 								<div class="portfolio-wrap">
-									<img class="myImg" src="data:image/jpg;base64,${pubblicazione.image}"
+									<img class="myImg"
+										src="data:image/jpg;base64,${pubblicazione.image}"
 										class="img-fluid" alt="">
 									<div class="portfolio-links">
 										<a href="data:image/jpg;base64,${pubblicazione.image}"
-											data-gall="portfolioGallery" class="venobox" title="${pubblicazione.titolo}"
-											width="141px" height="192px" data-target="#popImg" ><i
-											class="bx bx-plus"></i></a> <a href="${pubblicazione.description}" onclick="dettaglio('${pubblicazione.id}')"
+											data-gall="portfolioGallery" class="venobox"
+											title="${pubblicazione.titolo}" width="141px" height="192px"
+											data-target="#popImg"><i class="bx bx-plus"></i></a> <a
+											href="${pubblicazione.description}"
+											onclick="dettaglio('${pubblicazione.id}')"
 											title="More Details" data-toggle="modal"
 											data-target="#pubCampo"><i class="bx bx-link"></i></a>
 									</div>
 								</div>
 							</div>
-						<% i=1;	} %>
+							<%
+							i = 1;
+							}
+							%>
 						</c:forEach>
 
-						
+
 					</div>
 
 				</div>
@@ -222,22 +242,21 @@
 							<section id="popDettaglioPub" class="">
 							
 							</section> <!-- End Contact Section -->
-						<!-- End Contact Section ->
+					<!-- End Contact Section ->
 						</div>
 					</div> -->
 				</div>
 			</div>
-			
+
 			<!--POP Il campo di pomodori -->
 			<div class="container">
 				<!-- .modal -->
 				<div class="modal fade" id="pubCampo" role="dialog">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
-							<section id="popDettaglioPub" class="">
-							
-							</section> <!-- End Contact Section -->
-						<!-- End Contact Section -->
+							<section id="popDettaglioPub" class=""></section>
+							<!-- End Contact Section -->
+							<!-- End Contact Section -->
 						</div>
 					</div>
 				</div>
@@ -319,7 +338,7 @@
 
 						<div class="row icon-box" data-aos="fade-up">
 							<table class="table table-sm">
-								
+
 								<c:forEach var="pubblicazione" items="${pubblicazione}">
 									<tr>
 										<td style="cursor: pointer"><strong>${pubblicazione.titolo}</strong></td>
@@ -327,20 +346,27 @@
 										<td>${pubblicazione.dataPubblicazioneM}</td>
 										<td>
 											<div class="portfolio-wrap">
-												<img src="data:image/jpg;base64,${pubblicazione.image}" style='width: 100%; '>
+												<img src="data:image/jpg;base64,${pubblicazione.image}"
+													style='width: 100%;'>
 											</div>
 
 										</td>
 										<td>
-											<p style="cursor: pointer"><button type="button" 
-											data-toggle="modal" data-target="#popUpdatePub" onclick="updatePreparePub('${pubblicazione.id}')" 
-											class="button">Modifica</button></p>
 											<p style="cursor: pointer">
-											<button type="button" data-toggle="modal" data-target="#confirmazione" data-gall="portfolioGallery"
-											onclick="confermaDelete('${pubblicazione.id}', '${pubblicazione.titolo}')" class="button">Elimina</button></p>
-											
+												<button type="button" data-toggle="modal"
+													data-target="#popUpdatePub"
+													onclick="updatePreparePub('${pubblicazione.id}')"
+													class="button">Modifica</button>
+											</p>
+											<p style="cursor: pointer">
+												<button type="button" data-toggle="modal"
+													data-target="#confirmazione" data-gall="portfolioGallery"
+													onclick="confermaDelete('${pubblicazione.id}', '${pubblicazione.titolo}')"
+													class="button">Elimina</button>
+											</p>
+
 										</td>
-										
+
 									</tr>
 								</c:forEach>
 							</table>
@@ -380,16 +406,15 @@
 											<!-- action="${url}" method="POST" -->
 											<div class="form-group">
 												<label for="titolo">Titolo:</label> <input type="text"
-													class="form-control" id="titoloPubb"
-													data-rule="minlen:4" placeholder="Titolo"
+													class="form-control" id="titoloPubb" data-rule="minlen:4"
+													placeholder="Titolo"
 													data-msg="Inserisci il titolo per favore" />
 												<div class="validate"></div>
 											</div>
 											<div class="form-group">
 												<label for="Anno">Anno:</label> <input type="text"
-													class="form-control" id="annoPubb"
-													data-rule="minlen:4" placeholder="Anno"
-													data-msg="Inserisci l'anno per favore" />
+													class="form-control" id="annoPubb" data-rule="minlen:4"
+													placeholder="Anno" data-msg="Inserisci l'anno per favore" />
 												<div class="validate"></div>
 											</div>
 											<div class="form-group">
@@ -403,13 +428,16 @@
 											<div class="form-group">
 												<label for="Anno">Immagine:</label> <input type="file"
 													class="form-control uploadedfile" id="imagePubbIn"
-													placeholder="immagine" /> <!-- onclick="fileuploadinit()" --> 
+													placeholder="immagine" />
+												<!-- onclick="fileuploadinit()" -->
 												<div class="validate"></div>
 											</div>
 											<div id="result"></div>
 											<div class="text-center">
-												<button class="button" type="submit" onclick="insertPublicazione()" value="Inserisci"
-												data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery">Inserisci</button>
+												<button class="button" type="submit"
+													onclick="insertPublicazione()" value="Inserisci"
+													data-toggle="modal" data-target="#popReslte"
+													data-gall="portfolioGallery">Inserisci</button>
 											</div>
 										</div>
 									</div>
@@ -432,10 +460,9 @@
 			<div class="modal fade" id="popUpdatePub" role="dialog">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
-						<section id="popUpdatePubblicazioni" class="">
-							
-						</section> <!-- End Contact Section -->                                                                
-					</div>                                      
+						<section id="popUpdatePubblicazioni" class=""></section>
+						<!-- End Contact Section -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -454,7 +481,7 @@
 
 		<!-- Modal -->
 		<div class="modal fade" id="confirmazione" role="dialog">
-			<div class="modal-dialog" >
+			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<div class="section-title">
@@ -470,18 +497,34 @@
 			</div>
 		</div>
 
+		<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+		<!-- ======= Footer ======= -->
+		<footer class="container-fluid bg-footer text-center">
+			<div class="d-flex flex-column">
+				<div class="social-links mt-3">
+					<p class="text-light">
+						<a href="index.html">Michele Lalla</a>
+
+						<!-- a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+						<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+						<!-- a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>  -->
+						<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> <a
+							href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+					</p>
+				</div>
+			</div>
+
+		</footer>
+		<!-- End  Footer -->
+
 
 	</main>
 	<!-- End #main -->
 
-	<!-- ======= Footer ======= -->
-	<footer id="footer">
-		<jsp:include page="../template/menuFooter.jsp" />
-	</footer>
-	<!-- End  Footer -->
-	
+
 	</div>
-	!-- Vendor JS Files -->
+	<!-- Vendor JS Files -->
 	<script src="/MicheleProject/components/vendor/jquery/jquery.min.js"></script>
 	<script
 		src="/MicheleProject/components/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -505,7 +548,8 @@
 	<script src="/MicheleProject/components/js/main.js"></script>
 	<script src="/MicheleProject/components/js/publicazione.js"></script>
 	<script src="/MicheleProject/components/js/myLoader.js"></script>
-	<script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
+	<script
+		src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
 
 
 </body>

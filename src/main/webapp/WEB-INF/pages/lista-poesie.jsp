@@ -337,22 +337,29 @@
 			</div>
 		</div>		
 
-		<section class="inner-page">
-			<div class="container">
-				<p>Example Footer page template</p>
-			</div>
-		</section>
 
+		<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+		
+			<!-- ======= Footer ======= -->
+		<footer class="container-fluid bg-footer text-center">
+		  	<div class="d-flex flex-column">
+				<div class="social-links mt-3">
+					<p class="text-light">
+						<a href="index.html">Michele Lalla</a>
+					
+						<!-- a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+						<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+						<!-- a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>  -->
+						<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> 
+						<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+					</p>
+				</div>
+			</div>
+	  
+		</footer>
 	</main>
 	<!-- End #main -->
 
-	<!-- ======= Footer ======= -->
-	<footer id="footer">
-		<jsp:include page="../template/menuFooter.jsp" />
-	</footer>
-	<!-- End  Footer -->
-
-	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 
 	<!-- Vendor JS Files -->

@@ -15,19 +15,22 @@ function insertPublicazione() {
 	var myImage = document.getElementById("imagePubbIn");
 	// $('#imagePub').val();
 	//console.log('=======> ' , image);
-	var f;
-	var fReader = new FileReader();
-	fReader.readAsDataURL(myImage.files[0]);
-	fReader.onloadend = function(event) {
+	if (myImage.files[0] != null && contol(titolo, descrizione, anno)) {
 
-		f = event.target.result;
-		console.log("IMG ", f);
 		console.log("IMG ", myImage);
-		var image = f.split(",")[1];
 
-		var jsonData = { titolo: titolo, description: descrizione, dataPubblicazioneM: anno, image: image }; //Array 
-		//alert("Titolo: " + titolo + ", Descrizione: " + descrizione + ", Anno: " + anno + ", Image: " + image);
-		if (contol(titolo, descrizione, anno)) {
+		var f;
+		var fReader = new FileReader();
+		fReader.readAsDataURL(myImage.files[0]);
+
+		fReader.onloadend = function(event) {
+
+			f = event.target.result;
+
+			var image = f.split(",")[1];
+
+			var jsonData = { titolo: titolo, description: descrizione, dataPubblicazioneM: anno, image: image }; //Array 
+			//alert("Titolo: " + titolo + ", Descrizione: " + descrizione + ", Anno: " + anno + ", Image: " + image);
 			$("#popInsert").empty();
 			$.ajax({
 				url: "/MicheleProject/pubblicazioni/insert",
@@ -40,11 +43,12 @@ function insertPublicazione() {
 				}
 
 			});
-		} else {
-			alert("Tutti i campi sono obbligatori!!!");
 		}
-
+	} else {
+		//alert("Tutti i campi sono obbligatori!!!");
+		campiOblig();
 	}
+
 }
 
 function updatePreparePub(id) {
@@ -104,24 +108,25 @@ function updatePub(id) {
 	var descrizione = $('#descrizionePub').val();
 	var anno = $('#annoPub').val();
 	var image = document.getElementById("imagePub");// $('#imagePub').val();
-	console.log('=======> ', image);
-
-	/*if(document.getElementById("imagePub").files.length != 0){*/
-	var f;
-	var fReader = new FileReader();
-	fReader.readAsDataURL(image.files[0]);
-	fReader.onloadend = function(event) {
-
-		f = event.target.result;
-		//console.log("IMG ", f);
-		//console.log("IMG ", image);
-		var e = f.split(",")[1];
-		var jsonData = { id: id, titolo: titolo, description: descrizione, dataPubblicazioneM: anno, image: e }; //Array 
-
-		//alert("Id: " + id + ", Titolo: " + titolo + ", Descrizione: " + descrizione + ", Anno: " + anno + ", Image: " + f);
 
 
-		if (contol(titolo, descrizione, anno)) {
+	if (image.files[0] != null && contol(titolo, descrizione, anno)) {
+		console.log('=======> ', image);
+
+		var f;
+		var fReader = new FileReader();
+		fReader.readAsDataURL(image.files[0]);
+		fReader.onloadend = function(event) {
+
+			f = event.target.result;
+			//console.log("IMG ", f);
+			//console.log("IMG ", image);
+			var e = f.split(",")[1];
+			var jsonData = { id: id, titolo: titolo, description: descrizione, dataPubblicazioneM: anno, image: e }; //Array 
+
+			//alert("Id: " + id + ", Titolo: " + titolo + ", Descrizione: " + descrizione + ", Anno: " + anno + ", Image: " + f);
+
+
 			$("#popDettaglioPub").empty();
 			$.ajax({
 				url: "/MicheleProject/pubblicazioni/update",
@@ -134,36 +139,13 @@ function updatePub(id) {
 				}
 
 			});
-		} else {
-			alert("Tutti i campi sono obbligatori!!!");
 		}
+	} else {
+		//alert("Tutti i campi sono obbligatori!!!");
+		campiOblig();
 	}
-	/*} else {
-		var jsonData = { id: id, titolo: titolo, description: descrizione, dataPubblicazioneM: anno, image: image }; //Array 
-
-		//alert("Id: " + id + ", Titolo: " + titolo + ", Descrizione: " + descrizione + ", Anno: " + anno + ", Image: " + f);
-
-
-		if (contol(titolo, descrizione, anno)) {
-
-			$.ajax({
-				url: "/MicheleProject/pubblicazioni/update",
-				type: "POST",
-				data: jsonData,
-				success: function(resultMessage) {
-					//console.log(resultMessage);
-					$('#myReslte').empty();
-					$('#myReslte').append(resultMessage)
-				}
-
-			});
-		} else {
-			alert("Tutti i campi sono obbligatori!!!");
-		}
-
-	}*/
-
 }
+
 
 function confermaDelete(id, titolo) {
 	//alert("Ecco mi LANS!!!");
@@ -212,3 +194,37 @@ function refresh() {
 		location.reload(); // then reload the page.(3)
 	}, 100);
 }
+
+function campiOblig() {
+
+	var myhtml = "";
+
+	myhtml += "<div class='container'>";
+	myhtml += "<div class='modal-header'>";
+	myhtml += "	<div class='section-title'>";
+	myhtml += "		<h2>Error message</h2>";
+	myhtml += "	</div>";
+
+	myhtml += "	<button type='button' class='close' aria-label='Close'";
+	myhtml += "		data-dismiss='modal' >";
+	myhtml += "		<span aria-hidden='true'>&times;</span>";
+	myhtml += "	</button>";
+
+	myhtml += "</div>";
+	myhtml += "<div class='modal-body'>";
+	myhtml += "		 <span><h1 style='color:red;'>Tutti i campi sono obbligatori!</h1> </span>";
+
+	myhtml += "</div>";
+	myhtml += "<div class='modal-footer'>";
+	myhtml += "	<div class='social-links mt-3 text-center'>";
+	myhtml += "		<a class='btn btn-default' data-dismiss='modal' > Close </a>";
+	myhtml += "	</div>";
+	myhtml += "</div>";
+	myhtml += "</div>";
+
+	console.log("HTML: ", myhtml);
+	$('#myReslte').empty();
+	$('#myReslte').append(myhtml);
+
+}
+

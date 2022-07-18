@@ -8,12 +8,24 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+.bg-footer { 
+   background-color: #040b14; /* black */
+   color: #ffffff;
+   
+  }
+  
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
 }
 
 a {
+  color: #149ddd;
+}
+
+.check{
   color: #149ddd;
 }
 

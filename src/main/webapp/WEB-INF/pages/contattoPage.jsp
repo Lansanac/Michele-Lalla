@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					<div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
 						<spring:url var="url" value="/messaggio" />
 						<form action="${url}" method="post" role="form"
-							class="php-email-form">
+							class="php-email-form" id="myFormID">
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="name">Nome &amp; Cognome:</label> <input
@@ -175,6 +175,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									data-msg="Please write something for us"></textarea>
 								<div class="validate"></div>
 							</div>
+							<div class="form-row">
+								<div class="form-group col-md-1">
+									<input type="checkbox" class="form-control check" name="privacy" 
+									id="privacy" onclick="myCheck()" />
+								</div>
+								<div class="form-group col-md-11">
+									<label class="form-check-label" for="flexCheckDefault"><br><b>Dichiaro di aver letto l'informativa Privacy</b>, disposti ai senzi degli articoli 13 e 14 del Regolamento UE 679/2016.</label>
+									<div class="validate"></div>
+								</div>
+							</div>
 							<div class="text-center">
 								<div class="mb-3">
 									<div class="loading"></div>
@@ -185,7 +195,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									<div class="sent-message" id="send"></div>
 								</div>
 								<button type="submit" onclick="sendMessage()" 
-									data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery">Invia</button>
+									data-toggle="modal" data-target="#popReslte" data-gall="portfolioGallery" 
+									id="mybutton" style="display:none">Invia</button>
 							</div>
 						</form>
 					</div>
@@ -248,20 +259,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				</div>
 			</div>
 		</div>
-
+		<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+		
+			<!-- ======= Footer ======= -->
+		<footer class="container-fluid bg-footer text-center">
+		  	<div class="d-flex flex-column">
+				<div class="social-links mt-3">
+					<p class="text-light">
+						<a href="index.html">Michele Lalla</a>
+					
+						<!-- a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+						<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+						<!-- a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>  -->
+						<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> 
+						<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+					</p>
+				</div>
+			</div>
+	  
+		</footer>
 
 	</main>
-	<!-- End #main -->
-
-	<!-- ======= Footer ======= -->
-	<footer id="footer">
-		<jsp:include page="../template/menuFooter.jsp" />
-	</footer>
-	<!-- End  Footer -->
-
-	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-	!-- Vendor JS Files -->
+	
+	
+	
+	<!-- Vendor JS Files -->
 	<script src="/MicheleProject/components/vendor/jquery/jquery.min.js"></script>
 	<script
 		src="/MicheleProject/components/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

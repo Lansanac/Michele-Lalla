@@ -67,10 +67,10 @@
 				</h1>
 				<div class="social-links mt-3 text-center">
 					<!-- a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-					<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> 
+					<a href="https://www.facebook.com/facebook/" class="facebook"  target="_blank"><i class="bx bxl-facebook"></i></a>
 					<!-- a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>  -->
-					<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> 
-					<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+					<a href="https://web.skype.com/" class="google-plus"  target="_blank"><i class="bx bxl-skype"></i>
+					</a> <a	href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
 				</div>
 			</div>
 	
@@ -348,10 +348,10 @@
 						<a href="index.html">Michele Lalla</a>
 					
 						<!-- a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-						<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+						<a href="https://www.facebook.com/facebook/" class="facebook"  target="_blank"><i class="bx bxl-facebook"></i></a>
 						<!-- a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>  -->
-						<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> 
-						<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+						<a href="https://web.skype.com/" class="google-plus"  target="_blank"><i class="bx bxl-skype"></i>
+						</a> <a	href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
 					</p>
 				</div>
 			</div>

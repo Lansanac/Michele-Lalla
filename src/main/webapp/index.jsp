@@ -20,38 +20,29 @@
 <meta content="" name="keywords">
 
 <!-- Favicons -->
-<link href="/MicheleProject/application/img/michele.jpg" rel="icon">
-<link href="/MicheleProject/application/img/michele.jpg"
-	rel="apple-touch-icon">
+<link href="./application/img/michele.jpg" rel="icon">
+<link href="./application/img/michele.jpg" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
-<link href="/MicheleProject/components/css/fonts.googleapis.com.css"
-	rel="stylesheet">
+<link type="text/css" href="./components/css/fonts.googleapis.com.css" rel="stylesheet" >
 
 <!-- Vendor CSS Files -->
-<link
-	href="/MicheleProject/components/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/icofont/icofont.min.css"
-	rel="stylesheet">
-<link
-	href="/MicheleProject/components/vendor/boxicons/css/boxicons.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/venobox/venobox.css"
-	rel="stylesheet">
-<link
-	href="/MicheleProject/components/vendor/owl.carousel/assets/owl.carousel.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/aos/aos.css"
-	rel="stylesheet">
+<link type="text/css" href="./components/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link type="text/css" href="./components/vendor/icofont/icofont.min.css" rel="stylesheet">
+<link type="text/css" href="./components/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link type="text/css" href="./components/vendor/venobox/venobox.css" rel="stylesheet">
+<link type="text/css" href="./components/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link type="text/css" href="./components/vendor/aos/aos.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="/MicheleProject/components/css/style.css" rel="stylesheet">
+<link type="text/css" href="./components/css/style.css" rel="stylesheet">
+
+
 
 
 <style>
 #hero {
-	background-image: url("/MicheleProject/application/img/michele3.jpg");
+	background-image: url("./application/img/michele3.jpg");
 }
 </style>
 
@@ -71,7 +62,7 @@
 
 			<div class="profile">
 				<img id="myloginForm"
-					src="/MicheleProject/application/img/michele.jpg" alt=""
+					src="./application/img/michele.jpg" alt=""
 					class="img-fluid rounded-circle">
 
 				<h1 class="text-light">
@@ -277,30 +268,23 @@
 	<!-- Vendor JS Files -->
 
 	<!-- Vendor JS Files -->
-	<script src="/MicheleProject/components/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/php-email-form/validate.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/waypoints/jquery.waypoints.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/counterup/counterup.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="/MicheleProject/components/vendor/venobox/venobox.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/owl.carousel/owl.carousel.min.js"></script>
-	<script src="/MicheleProject/components/vendor/typed.js/typed.min.js"></script>
-	<script src="/MicheleProject/components/vendor/aos/aos.js"></script>
+	<script type="text/javascript" src="./components/vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/jquery.easing/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/php-email-form/validate.js"></script>
+	<script type="text/javascript" src="./components/vendor/waypoints/jquery.waypoints.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/counterup/counterup.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/venobox/venobox.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/typed.js/typed.min.js"></script>
+	<script type="text/javascript" src="./components/vendor/aos/aos.js"></script>
 
 	<!-- Template Main JS File -->
-	<script src="/MicheleProject/components/js/main.js"></script>
-	<script src="/MicheleProject/components/js/index.js"></script>
-	<script src="/MicheleProject/components/js/myLoader.js"></script>
-	<!-- <script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script> -->
+	<script type="text/javascript" src="./components/js/main.js"></script>
+	<script type="text/javascript" src="./components/js/index.js"></script>
+	<!-- <script type="text/javascript" src="./components/js/myLoader.js"></script>
+	<script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script> -->
 
 </body>
 

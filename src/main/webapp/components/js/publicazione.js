@@ -33,7 +33,7 @@ function insertPublicazione() {
 			//alert("Titolo: " + titolo + ", Descrizione: " + descrizione + ", Anno: " + anno + ", Image: " + image);
 			$("#popInsert").empty();
 			$.ajax({
-				url: "/MicheleProject/pubblicazioni/insert",
+				url: "/pubblicazioni/insert",
 				type: "POST",
 				data: jsonData,
 				success: function(resultMessage) {
@@ -57,7 +57,7 @@ function updatePreparePub(id) {
 	//
 
 	$.ajax({
-		url: "/MicheleProject/pubblicazioni/getPubblicazione/" + id,
+		url: "/pubblicazioni/getPubblicazione/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(pubUpdate) {
@@ -88,7 +88,7 @@ function dettaglio(id) {
 	var jsonData = { id: id }; //Array 
 
 	$.ajax({
-		url: "/MicheleProject/pubblicazioni/dettaglio/" + id,
+		url: "/pubblicazioni/dettaglio/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(pubDettaglio) {
@@ -129,7 +129,7 @@ function updatePub(id) {
 
 			$("#popDettaglioPub").empty();
 			$.ajax({
-				url: "/MicheleProject/pubblicazioni/update",
+				url: "/pubblicazioni/update",
 				type: "POST",
 				data: jsonData,
 				success: function(resultMessage) {
@@ -168,7 +168,7 @@ function deletePub(id) {
 	//if (result == true) {
 	var jsonData = { id: id }; //Array
 	$.ajax({
-		url: "/MicheleProject/pubblicazioni/delet/" + id,
+		url: "/pubblicazioni/delet/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(resultMessage) {

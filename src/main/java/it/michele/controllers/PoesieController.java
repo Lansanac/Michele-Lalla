@@ -1,8 +1,6 @@
 package it.michele.controllers;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import it.michele.beans.Poesie;
-import it.michele.beans.Racconto;
 import it.michele.beans.ResultMessage;
 import it.michele.controllers.exceptions.ControllerException;
-import it.michele.controllers.forms.PoesieForm;
 import it.michele.services.PoesieService;
 import it.michele.services.exceptions.ServiceException;
 

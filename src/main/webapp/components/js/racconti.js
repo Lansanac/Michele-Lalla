@@ -51,7 +51,7 @@ function insertRacconto(){
  	if(contol(titolo, descrizione, anno)){
  		$('#popInsert').empty();
 		$.ajax({
-		    url : "/MicheleProject/racconti/insertRacconto",
+		    url : "/racconti/insertRacconto",
 		    type : "POST",
 		    data : jsonData,
 		    success : function(resultMessage) {
@@ -72,7 +72,7 @@ function updatePrepare(id){
 	var jsonData = {id:id}; //Array 
  	
 	$.ajax({
-	    url  : "/MicheleProject/racconti/getRacconto/"+id,
+	    url  : "/racconti/getRacconto/"+id,
 	    type : "GET",
 	    data : jsonData,
 		success : function(raccontiUpdate) {
@@ -96,7 +96,7 @@ function update(id){
  	if(contol(titolo, descrizione, anno)){
  		
 		$.ajax({
-		    url  : "/MicheleProject/racconti/updateRacconto",
+		    url  : "/racconti/updateRacconto",
 		    type : "POST",
 		    data : jsonData,
 		    success : function(resultMessage) {
@@ -118,7 +118,7 @@ function deleteRacconti(id){
     //if (result == true) {
         var jsonData = {id:id}; //Array
 		$.ajax({
-		    url  : "/MicheleProject/racconti/deletRacconto/"+id,
+		    url  : "/racconti/deletRacconto/"+id,
 		    type : "GET",
 		    data : jsonData,
 			success : function(resultMessage) {

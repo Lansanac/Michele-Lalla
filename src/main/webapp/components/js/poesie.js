@@ -46,7 +46,7 @@ function insertPoesia() {
 	var contvalue = contol(titolo, descrizione, anno)
 	if (contvalue == true) {
 		$.ajax({
-			url: "/MicheleProject/poesia/insertPoesia",
+			url: "/poesia/insertPoesia",
 			type: "POST",
 			data: jsonData,
 			success: function(resultMessage) {
@@ -68,7 +68,7 @@ function updatePrepare(id) {
 	var jsonData = { id: id }; //Array 
 
 	$.ajax({
-		url: "/MicheleProject/poesia/openUpdate/" + id,
+		url: "/poesia/openUpdate/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(poesiaUpdate) {
@@ -90,7 +90,7 @@ function update(id) {
 	if (contol(titolo, descrizione, anno)) {
 
 		$.ajax({
-			url: "/MicheleProject/poesia/update",
+			url: "/poesia/update",
 			type: "POST",
 			data: jsonData,
 			success: function(resultMessage) {
@@ -126,7 +126,7 @@ function deletePoesia(id) {
 
 	var jsonData = { id: id }; //Array
 	$.ajax({
-		url: "/MicheleProject/poesia/delete/" + id,
+		url: "/poesia/delete/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(resultMessage) {

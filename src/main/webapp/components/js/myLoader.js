@@ -1,24 +1,22 @@
-/**
- * 
- */
  $(document).ready(function($) {
 
-	
+	/*
 	$( document ).ajaxStart(function() {
 	  	showLoader($); 
 	});
 	$( document ).ajaxStop(function() {
 	  	$.loadingBlockHide();  
 	});
-
-	/*$(document).on({
+	*/
+	
+	$(document).on({
 	    ajaxStart: function(){
-	        showLoader($); 
+	        showLoader(); 
 	    },
 	    ajaxStop: function(){ 
 	        $.loadingBlockHide(); 
 	    } 
-	});*/
+	});
  	/*$('body')
 	    //.hide()  // Hide it initially
 	    .ajaxStart(function() {
@@ -27,10 +25,10 @@
 	    .ajaxStop(function() {
 	        $('body').hide();
     });
-    */
+    
        
     $.loadingBlockShow({
-        imgPath: '/MicheleProject/application/img/default.svg',
+        imgPath: '<c:url value="./application/img/default.svg" />',
 		text: 'jQuery Script Loading ...',
         style: {
             position: 'fixed',
@@ -44,7 +42,7 @@
     });
 
     setTimeout($.loadingBlockHide, 1000);
-    
+    */
     //showLoader($);
 
 });
@@ -62,7 +60,7 @@
 
 function showLoader($){
 	$.loadingBlockShow({
-        imgPath: '/MicheleProject/application/img/default.svg',
+        imgPath: '<c:url value="./application/img/default.svg" />',
 		text: 'jQuery Script Loading ...',
         style: {
             position: 'fixed',
@@ -78,10 +76,10 @@ function showLoader($){
    // setTimeout($.loadingBlockHide, 1000);
 }
 
-;(function ($) {
+(function ($) {
     $.loadingBlockShow = function(opts) {
         var defaults = {
-            imgPath: '/MicheleProject/application/img/icon.gif',
+            imgPath: './application/img/icon.gif',
             imgStyle: {
                 width: 'auto',
                 textAlign: 'center',
@@ -101,7 +99,7 @@ function showLoader($){
         $.extend(defaults, opts);
         $.loadingBlockHide();
 
-        var img = $('<div><img src="' + defaults.imgPath + '"><div>' + defaults.text + '</div></div>');
+        var img = $('<div><img src=<c:url value="' + defaults.imgPath + '" /> ><div>' + defaults.text + '</div></div>');
         var block = $('<div id="loading_block"></div>');
 
         block.css(defaults.style).appendTo('body');

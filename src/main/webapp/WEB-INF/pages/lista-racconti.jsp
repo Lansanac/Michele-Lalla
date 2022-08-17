@@ -15,42 +15,29 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Michele Lalla</title>
-<meta content="" name="description">
-<meta content="" name="keywords">
 
-<!-- Favicons -->
-<link href="/MicheleProject/application/img/michele.jpg" rel="icon">
-<link href="/MicheleProject/application/img/michele.jpg"
-	rel="apple-touch-icon">
+		<title>Michele Lalla</title>
+		<meta content="" name="description">
+		<meta content="" name="keywords">
 
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-	rel="stylesheet">
-
-<!-- Vendor CSS Files -->
-<link
-	href="/MicheleProject/components/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/icofont/icofont.min.css"
-	rel="stylesheet">
-<link
-	href="/MicheleProject/components/vendor/boxicons/css/boxicons.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/venobox/venobox.css"
-	rel="stylesheet">
-<link
-	href="/MicheleProject/components/vendor/owl.carousel/assets/owl.carousel.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/aos/aos.css"
-	rel="stylesheet">
-
-<!-- Template Main CSS File -->
-<link href="/MicheleProject/components/css/style.css" rel="stylesheet">
-<link href="/MicheleProject/components/css/readMore.css"
-	rel="stylesheet">
-	
+		<!-- Favicons -->
+		<link href="<c:url value="/application/img/michele.jpg" />" rel="icon">
+		<link href="<c:url value="/application/img/michele.jpg" />" rel="apple-touch-icon">
+		
+		<!-- Google Fonts -->
+		<link href="<c:url value="/components/css/fonts.googleapis.com.css" />" rel="stylesheet" type="text/css">
+		
+		<!-- Vendor CSS Files -->
+		<link type="text/css" href="<c:url value="/components/vendor/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/icofont/icofont.min.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/boxicons/css/boxicons.min.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/venobox/venobox.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/owl.carousel/assets/owl.carousel.min.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/aos/aos.css" />" rel="stylesheet">
+		
+		<!-- Template Main CSS File -->
+		<link type="text/css" href="<c:url value="/components/css/style.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/css/readMore.css" />" rel="stylesheet">
 	
 	 
 	
@@ -76,7 +63,7 @@
 		<div class="d-flex flex-column">
 
 			<div class="profile">
-				<img src="/MicheleProject/application/img/michele.jpg" alt=""
+				<img src="<c:url value="/application/img/michele.jpg" />" alt=""
 					class="img-fluid rounded-circle">
 				<h1 class="text-light">
 					<a href="index.html">Michele Lalla</a>
@@ -102,7 +89,7 @@
 					<li><a href='<spring:url value="/racconti/list" />'><i
 							class="bx bx-book-content"></i>Racconti</a></li>
 					<c:if test="${empty pageContext.request.remoteUser}">
-						<li><a href='<spring:url value="/pubblicazioni" />'><i
+						<li><a href='<spring:url value="/pubblicazioni/list" />'><i
 								class="bx bx-server"></i>Pubblicazioni</a></li>
 					</c:if>
 					<c:if test="${not empty pageContext.request.remoteUser}">
@@ -334,30 +321,24 @@
 
 
 
-	<script src="/MicheleProject/components/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/php-email-form/validate.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/waypoints/jquery.waypoints.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/counterup/counterup.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="/MicheleProject/components/vendor/venobox/venobox.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/owl.carousel/owl.carousel.min.js"></script>
-	<script src="/MicheleProject/components/vendor/typed.js/typed.min.js"></script>
-	<script src="/MicheleProject/components/vendor/aos/aos.js"></script>
-
-	<!-- Template Main JS File -->
-	<script src="/MicheleProject/components/js/main.js"></script>
-	<script src="/MicheleProject/components/js/racconti.js"></script>
-	<script src="/MicheleProject/components/js/myLoader.js"></script>
-	<script src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
+	<!-- Vendor JS Files -->
+		<script type="text/javascript" src="<c:url value="/components/vendor/jquery/jquery.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/jquery.easing/jquery.easing.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/php-email-form/validate.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/waypoints/jquery.waypoints.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/counterup/counterup.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/isotope-layout/isotope.pkgd.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/venobox/venobox.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/owl.carousel/owl.carousel.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/typed.js/typed.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/aos/aos.js" />"></script>
+	
+		<!-- Template Main JS File -->
+		<script type="text/javascript" src="<c:url value="/components/js/main.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/js/racconti.js" />"></script>
+		<!-- <script type="text/javascript" src="<c:url value="/components/js/myLoader.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/jquery/jquery-ajax-3.1.1.min.js" />"></script> -->
 
 
 	

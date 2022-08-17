@@ -102,7 +102,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-	    web.ignoring().antMatchers("**/MicheleProject/",
+	    web.ignoring().antMatchers("**/MicheleProject/", "**/http://michelelalla.org/", "**/https://michelelalla.org/",
 	    		"**/biografia/list", "**/poesia/list", "**/racconti/list", "**/pubblicazioni", "**/contattoPage",
 	    		"/components/**", "/application/**", "**/list", "/css/**", "/js/**", "/img/**", "/icon/**");
 	}

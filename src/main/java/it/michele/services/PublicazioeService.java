@@ -6,7 +6,7 @@ import it.michele.beans.Pubblicazione;
 import it.michele.services.exceptions.ServiceException;
 
 public interface PublicazioeService {
-	public List<Pubblicazione> getTitolo() throws ServiceException;
+	public List<String> getTitolo() throws ServiceException;
     public List<Pubblicazione> getListPubblicazione() throws ServiceException;
     public Pubblicazione getPublicazione(int id) throws ServiceException;
     public boolean insert(Pubblicazione publicazione) throws ServiceException;

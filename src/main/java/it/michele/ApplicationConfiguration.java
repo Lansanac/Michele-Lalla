@@ -69,10 +69,19 @@ public class ApplicationConfiguration implements WebMvcConfigurer  {
 
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
+		
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/michieledb");
 		dataSource.setUsername("root");
 		dataSource.setPassword("Ny.rk@aDlpRKXX7x");
+		/*
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://ns71.dnsloader.com/michel27_lalladatabase");
+		//dataSource.setUrl("jdbc:mysql://ns71.dnsloader.com/michel27_systemDB");
+		dataSource.setUsername("michel27_michel27");
+		dataSource.setPassword("MicheleLansana");
+		*/
+		
 		dataSource.getConnection().setAutoCommit(false);
 
 		return dataSource;

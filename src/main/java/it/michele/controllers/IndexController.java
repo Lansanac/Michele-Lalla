@@ -28,12 +28,12 @@ public class IndexController {
 		BasicConfigurator.configure();
 		logger.info("IndexController.list ");
 		String returnValue = "index";
-		List<Pubblicazione> pubblicaziones =  new ArrayList<Pubblicazione>(); 
+		List<String> pubblicaziones =  new ArrayList<String>(); 
 		try {
 			pubblicaziones = publicazioneService.getTitolo();
 			String titoli = "";
-			for (Pubblicazione pubblicazione : pubblicaziones) {
-				titoli += pubblicazione.getTitolo()+", ";
+			for (String pubblicazione : pubblicaziones) {
+				titoli += pubblicazione+", ";
 			}
 			model.addAttribute("pubblicazioni", titoli);
 			System.out.println("<<<<<	Pubblicazioni	 >>>>>  "+titoli);

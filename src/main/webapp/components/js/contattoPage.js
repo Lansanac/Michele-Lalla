@@ -27,7 +27,7 @@ function sendMessage() {
 	console.log(jsonData);
 	if (contol(nomeCognome, email, soggetto, messaggio, privacy)) {
 		$.ajax({
-			url: "MicheleProject/messaggio",
+			url: "/messaggio",
 			type: "POST",
 			data: jsonData,
 			success: function(resultMessage) {

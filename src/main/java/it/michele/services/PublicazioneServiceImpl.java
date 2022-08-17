@@ -31,8 +31,8 @@ public class PublicazioneServiceImpl implements PublicazioeService {
 			
 			if(publicazione.getTitolo()!= null && publicazione.getDescription()!= null && publicazione.getDataPubblicazioneM() > 0) {
 				if(publicazione.getImage()!=null) {
-					Blob imgBlob = new SerialBlob(Base64Utils.decode(publicazione.getImage().getBytes()));
-					data = publicazineDao.insert(publicazione.getTitolo(), publicazione.getDescription(), publicazione.getDataPubblicazioneM(), imgBlob);
+					//Blob imgBlob = new SerialBlob(Base64Utils.decode(publicazione.getImage().getBytes()));
+					data = publicazineDao.insert(publicazione.getTitolo(), publicazione.getDescription(), publicazione.getDataPubblicazioneM(), publicazione.getImage());
 				}else {
 					data = publicazineDao.insert(publicazione.getTitolo(), publicazione.getDescription(), publicazione.getDataPubblicazioneM(), null);
 				}				
@@ -53,10 +53,10 @@ public class PublicazioneServiceImpl implements PublicazioeService {
 	}
 
 	@Override
-	public List<Pubblicazione> getTitolo() throws ServiceException {
+	public List<String> getTitolo() throws ServiceException {
 		logger.info("PublicazioneServiceImpl.getTitolo ");
 
-		List<Pubblicazione> publPubblicaziones = new ArrayList<Pubblicazione>();
+		List<String> publPubblicaziones = new ArrayList<String>();
 		try {
 			publPubblicaziones = publicazineDao.getTitolo();
 		} catch (Exception e) {
@@ -104,8 +104,8 @@ public class PublicazioneServiceImpl implements PublicazioeService {
 			
 			if(pubblicazione.getId()>0 && pubblicazione.getTitolo()!= null && pubblicazione.getDescription()!= null && pubblicazione.getDataPubblicazioneM() > 0) {
 				if(pubblicazione.getImage()!=null) {
-					Blob imgBlob = new SerialBlob(Base64Utils.decode(pubblicazione.getImage().getBytes()));
-					data = publicazineDao.update(pubblicazione.getId(), pubblicazione.getTitolo(), pubblicazione.getDescription(), pubblicazione.getDataPubblicazioneM(), imgBlob);
+					//Blob imgBlob = new SerialBlob(Base64Utils.decode(pubblicazione.getImage().getBytes()));
+					data = publicazineDao.update(pubblicazione.getId(), pubblicazione.getTitolo(), pubblicazione.getDescription(), pubblicazione.getDataPubblicazioneM(), pubblicazione.getImage());
 				}else {
 					data = publicazineDao.update(pubblicazione.getId(), pubblicazione.getTitolo(), pubblicazione.getDescription(), pubblicazione.getDataPubblicazioneM(), null);
 				}

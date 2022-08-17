@@ -9,48 +9,36 @@
 <!DOCTYPE html>
 <html lang="it">
 
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Michele Lalla</title>
-<meta content="" name="description">
-<meta content="" name="keywords">
+		<title>Michele Lalla</title>
+		<meta content="" name="description">
+		<meta content="" name="keywords">
+		<meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type" />
 
-<!-- Favicons -->
-
-<link href="/MicheleProject/application/img/michele.jpg" rel="icon">
-<link href="/MicheleProject/application/img/michele.jpg"
-	rel="apple-touch-icon">
-
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-	rel="stylesheet">
-
-<!-- Vendor CSS Files -->
-<link
-	href="/MicheleProject/components/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/icofont/icofont.min.css"
-	rel="stylesheet">
-<link
-	href="/MicheleProject/components/vendor/boxicons/css/boxicons.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/venobox/venobox.css"
-	rel="stylesheet">
-<link
-	href="/MicheleProject/components/vendor/owl.carousel/assets/owl.carousel.min.css"
-	rel="stylesheet">
-<link href="/MicheleProject/components/vendor/aos/aos.css"
-	rel="stylesheet">
-
-<!-- Template Main CSS File -->
-<link href="/MicheleProject/components/css/style.css" rel="stylesheet" />
+		<!-- Favicons -->
+		<link href="<c:url value="/application/img/michele.jpg" />" rel="icon">
+		<link href="<c:url value="/application/img/michele.jpg" />" rel="apple-touch-icon">
+		
+		<!-- Google Fonts -->
+		<link href="<c:url value="/components/css/fonts.googleapis.com.css" />" rel="stylesheet" type="text/css">
+		
+		<!-- Vendor CSS Files -->
+		<link type="text/css" href="<c:url value="/components/vendor/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/icofont/icofont.min.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/boxicons/css/boxicons.min.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/venobox/venobox.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/owl.carousel/assets/owl.carousel.min.css" />" rel="stylesheet">
+		<link type="text/css" href="<c:url value="/components/vendor/aos/aos.css" />" rel="stylesheet">
+		
+		<!-- Template Main CSS File -->
+		<link type="text/css" href="<c:url value="/components/css/style.css" />" rel="stylesheet" />
 
 <style>
 #hero {
-	background-image: url("application/img/michele6.jpg");
+	background-image: url("<c:url value="/application/img/michele6.jpg" />");
 }
 
 .myImg {
@@ -78,7 +66,7 @@
 		<div class="d-flex flex-column">
 
 			<div class="profile">
-				<img src="/MicheleProject/application/img/michele.jpg" alt=""
+				<img src="<c:url value="/application/img/michele.jpg" />" alt=""
 					class="img-fluid rounded-circle">
 				<h1 class="text-light">
 					<a href="index.html">Michele Lalla</a>
@@ -162,10 +150,10 @@
 							<div class="col-lg-4 col-md-6 portfolio-item filter-app">
 								<div class="portfolio-wrap">
 									<img class="myImg"
-										src="data:image/jpg;base64,${pubblicazione.image}"
-										class="img-fluid" alt="">
+										src="${pubblicazione.image}"
+										class="img-fluid" alt="" />
 									<div class="portfolio-links">
-										<a href="data:image/jpg;base64,${pubblicazione.image}"
+										<a href="${pubblicazione.image}"
 											data-gall="portfolioGallery" class="venobox"
 											title="${pubblicazione.titolo}" width="141" height="192"
 											data-target="#popImg"><i class="bx bx-plus"></i></a> <a
@@ -184,10 +172,10 @@
 							<div class="col-lg-4 col-md-6 portfolio-item filter-web">
 								<div class="portfolio-wrap">
 									<img class="myImg"
-										src="data:image/jpg;base64,${pubblicazione.image}"
-										class="img-fluid" alt="">
+										src="${pubblicazione.image}"
+										class="img-fluid" alt="" />
 									<div class="portfolio-links">
-										<a href="data:image/jpg;base64,${pubblicazione.image}"
+										<a href="${pubblicazione.image}"
 											data-gall="portfolioGallery" class="venobox"
 											title="${pubblicazione.titolo}" width="141" height="192"
 											data-target="#popImg"><i class="bx bx-plus"></i></a> <a
@@ -205,10 +193,10 @@
 							<div class="col-lg-4 col-md-6 portfolio-item filter-app">
 								<div class="portfolio-wrap">
 									<img class="myImg"
-										src="data:image/jpg;base64,${pubblicazione.image}"
-										class="img-fluid" alt="">
+										src="${pubblicazione.image}"
+										class="img-fluid" alt="" />
 									<div class="portfolio-links">
-										<a href="data:image/jpg;base64,${pubblicazione.image}"
+										<a href="${pubblicazione.image}"
 											data-gall="portfolioGallery" class="venobox"
 											title="${pubblicazione.titolo}" width="141px" height="192px"
 											data-target="#popImg"><i class="bx bx-plus"></i></a> <a
@@ -337,11 +325,19 @@
 						</div>
 
 						<div class="row icon-box" data-aos="fade-up">
-							<table class="table table-sm">
-
+							<table class="table table-hover">
+								<thead>
+								    <tr>
+								      <th scope="col">Titoli</th>
+								      <th scope="col">Descrizioni</th>
+								      <th scope="col">Anni</th>
+								      <th scope="col">Immagini</th>
+								      <th scope="col">Azioni</th>
+								    </tr>
+								  </thead>
 								<c:forEach var="pubblicazione" items="${pubblicazione}">
 									<tr>
-										<td style="cursor: pointer"><strong>${pubblicazione.titolo}</strong></td>
+										<td style="cursor: pointer">${pubblicazione.titolo}</td>
 										<td>${pubblicazione.description}</td>
 										<td>${pubblicazione.dataPubblicazioneM}</td>
 										<td>
@@ -525,31 +521,23 @@
 
 	</div>
 	<!-- Vendor JS Files -->
-	<script src="/MicheleProject/components/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/php-email-form/validate.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/waypoints/jquery.waypoints.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/counterup/counterup.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="/MicheleProject/components/vendor/venobox/venobox.min.js"></script>
-	<script
-		src="/MicheleProject/components/vendor/owl.carousel/owl.carousel.min.js"></script>
-	<script src="/MicheleProject/components/vendor/typed.js/typed.min.js"></script>
-	<script src="/MicheleProject/components/vendor/aos/aos.js"></script>
-
-	<!-- Template Main JS File -->
-	<script src="/MicheleProject/components/js/main.js"></script>
-	<script src="/MicheleProject/components/js/publicazione.js"></script>
-	<script src="/MicheleProject/components/js/myLoader.js"></script>
-	<script
-		src="/MicheleProject/components/jquery/jquery-ajax-3.1.1.min.js"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/jquery/jquery.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/jquery.easing/jquery.easing.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/php-email-form/validate.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/waypoints/jquery.waypoints.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/counterup/counterup.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/isotope-layout/isotope.pkgd.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/venobox/venobox.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/owl.carousel/owl.carousel.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/typed.js/typed.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/vendor/aos/aos.js" />"></script>
+	
+		<!-- Template Main JS File -->
+		<script type="text/javascript" src="<c:url value="/components/js/main.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/js/publicazione.js" />"></script>
+		<!-- <script type="text/javascript" src="<c:url value="/components/js/myLoader.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/components/jquery/jquery-ajax-3.1.1.min.js" />"></script> -->
 
 
 </body>

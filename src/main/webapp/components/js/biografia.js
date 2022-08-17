@@ -15,7 +15,7 @@ function insertPremiazioe() {
 	var contvalue = contol(titolo, descrizione, citta, anno)
 	if (contvalue == true) {
 		$.ajax({
-			url: "/MicheleProject/biografia/insert",
+			url: "/biografia/insert",
 			type: "POST",
 			data: jsonData,
 			success: function(resultMessage) {
@@ -37,7 +37,7 @@ function updatePrepare(id) {
 	var jsonData = { id: id }; //Array 
 
 	$.ajax({
-		url: "/MicheleProject/biografia/openUpdate/" + id,
+		url: "/biografia/openUpdate/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(premiazioneUpdate) {
@@ -59,7 +59,7 @@ function update(id) {
 	if (contol(titolo, descrizione, citta, anno)) {
 
 		$.ajax({
-			url: "/MicheleProject/biografia/update",
+			url: "/biografia/update",
 			type: "POST",
 			data: jsonData,
 			success: function(resultMessage) {
@@ -96,7 +96,7 @@ function deletePremiazione(id) {
 	$("#confirmazione").empty();
 	var jsonData = { id: id }; //Array
 	$.ajax({
-		url: "/MicheleProject/biografia/delete/" + id,
+		url: "/biografia/delete/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(resultMessage) {
@@ -119,7 +119,7 @@ function insertOpera() {
 	if (contvalue == true) {
 		$("#popInsertOpera").empty();
 		$.ajax({
-			url: "/MicheleProject/biografia/opera/insert",
+			url: "/biografia/opera/insert",
 			type: "POST",
 			data: jsonData,
 			success: function(resultMessage) {
@@ -141,7 +141,7 @@ function updatePrepareOpera(id) {
 	var jsonData = { id: id }; //Array 
 
 	$.ajax({
-		url: "/MicheleProject/biografia/opera/openUpdate/" + id,
+		url: "/biografia/opera/openUpdate/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(operaUpdate) {
@@ -161,7 +161,7 @@ function updateOpera(id) {
 	if (contolOpera(anno, descrizione)) {
 
 		$.ajax({
-			url: "/MicheleProject/biografia/opera/update",
+			url: "/biografia/opera/update",
 			type: "POST",
 			data: jsonData,
 			success: function(resultMessage) {
@@ -198,7 +198,7 @@ function deleteOpera(id) {
 	$("#confirmazioneO").empty();
 	var jsonData = { id: id }; //Array
 	$.ajax({
-		url: "/MicheleProject/biografia/opera/delete/" + id,
+		url: "/biografia/opera/delete/" + id,
 		type: "GET",
 		data: jsonData,
 		success: function(resultMessage) {

@@ -33,10 +33,10 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 	private static Logger logger = Logger.getLogger(PublicazioneDaoImpl.class);
 	private static Logger loggerMail = Logger.getLogger("sendMail");
 
-	public List<Pubblicazione> getTitolo() throws Exception{
+	public List<String> getTitolo() throws Exception{
 		logger.info("PublicazioneDaoImpl.getTitolo ");
 
-		List<Pubblicazione> pubblicaziones = new ArrayList<Pubblicazione>();
+		List<String> pubblicazioneDesc = new ArrayList<String>();
 		String query = "SELECT titolo FROM pubblicazioni";
 
 		Connection connection = DataSourceUtils.getConnection(dataSource);
@@ -47,7 +47,7 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 			while (rs.next()) {
 				Pubblicazione pubblicazione = new Pubblicazione();
 				pubblicazione.setTitolo(rs.getString("titolo"));
-				pubblicaziones.add(pubblicazione);
+				pubblicazioneDesc.add(pubblicazione.getTitolo());
 			}
 		}catch (SQLException e) {
 			logger.error("PublicazioneDaoImpl.getTitolo -->>  SQLException -->> ", e);
@@ -58,15 +58,15 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 
 			DataSourceUtils.releaseConnection(connection, dataSource);
 		}
-		return pubblicaziones;
+		return pubblicazioneDesc;
 	}
 	
 	@Override
 	public List<Pubblicazione> getListaPubblicazione() throws Exception {
 		logger.info("PublicazioneDaoImpl.getListaPubblicazione ");
 
-		InputStream inputStream = null;
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		/*InputStream inputStream = null;
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();*/
 
 		List<Pubblicazione> pubblicaziones = new ArrayList<Pubblicazione>();
 		String query = "SELECT * FROM pubblicazioni p" + " ORDER BY p.data_pubblicazione";
@@ -82,8 +82,9 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 				pubblicazione.setTitolo(rs.getString("titolo"));
 				pubblicazione.setDescription(rs.getString("descrizione"));
 				pubblicazione.setDataPubblicazioneM(rs.getInt("data_pubblicazione"));
+				pubblicazione.setImage(rs.getString("image"));
 
-				Blob blob = rs.getBlob("image");
+				/*Blob blob = rs.getBlob("image");
 				if (blob != null) {
 					byte[] buffer = new byte[4096];
 					int bytesRead = -1;
@@ -98,7 +99,7 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 					pubblicazione.setImage(base64Image);
 				} else {
 					pubblicazione.setImage(null);
-				}
+				}*/
 
 				pubblicaziones.add(pubblicazione);
 			}
@@ -110,15 +111,14 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 			throw e;
 		} finally {
 
-			inputStream.close();
-			outputStream.close();
+			/*putStream.close();*/
 			DataSourceUtils.releaseConnection(connection, dataSource);
 		}
 		return pubblicaziones;
 	}
 
 	@Override
-	public boolean insert(String titolo, String description, int dataPubblicazione, Blob image) throws Exception {
+	public boolean insert(String titolo, String description, int dataPubblicazione, String image) throws Exception {
 		logger.info("PublicazioneDaoImpl.insert -->> ");
 
 		boolean data = false;
@@ -132,7 +132,7 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 			ps.setString(1, titolo);
 			ps.setString(2, description);
 			ps.setInt(3, dataPubblicazione);
-			ps.setBlob(4, image);
+			ps.setString(4, image);
 
 			int result = ps.executeUpdate();
 			if (result > 0)
@@ -152,8 +152,8 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 		logger.info("PublicazioneDaoImpl.getPubblicazione ");
 
 		Pubblicazione pubblicazione = null;
-		InputStream inputStream = null;
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		/*InputStream inputStream = null;
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();*/
 
 		String query = "SELECT * FROM pubblicazioni pub WHERE pub.id = ?";
 		Connection connection = DataSourceUtils.getConnection(dataSource);
@@ -167,9 +167,9 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 				pubblicazione.setTitolo(rs.getString("titolo"));
 				pubblicazione.setDescription(rs.getString("descrizione"));
 				pubblicazione.setDataPubblicazioneM(rs.getInt("data_pubblicazione"));
-//				pubblicazione.setImage(rs.getBlob("image"));
+				pubblicazione.setImage(rs.getString("image"));
 
-				Blob blob = rs.getBlob("image");
+				/*Blob blob = rs.getBlob("image");
 				if (blob != null) {
 					byte[] buffer = new byte[4096];
 					int bytesRead = -1;
@@ -183,7 +183,7 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 					pubblicazione.setImage(base64Image);
 				} else {
 					pubblicazione.setImage(null);
-				}
+				}*/
 
 			}
 		} catch (SQLException e) {
@@ -198,7 +198,7 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 	}
 
 	@Override
-	public boolean update(int id, String titolo, String descrizione, int anno, Blob image) throws Exception {
+	public boolean update(int id, String titolo, String descrizione, int anno, String image) throws Exception {
 		logger.info("PublicazioneDaoImpl.update ");
 		String query = "UPDATE pubblicazioni SET titolo = ?, descrizione = ?, data_pubblicazione =?, image = ? WHERE id = ?";
 
@@ -210,7 +210,7 @@ public class PublicazioneDaoImpl implements PublicazioeDao {
 			ps.setString(1, titolo);
 			ps.setString(2, descrizione);
 			ps.setInt(3, anno);
-			ps.setBlob(4, image);
+			ps.setString(4, image);
 			ps.setInt(5, id);
 			// ps.setDate(4, new Date(racconti.getAnnoPubblicazione()));
 			System.out.println("<<<<<	SQL	 >>>>> " + ps);
